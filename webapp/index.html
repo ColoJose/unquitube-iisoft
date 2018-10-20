@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="unquiTube" ng-controller="unquiTubeCtrl" ng-cloak>
+<head>
+    <meta charset="utf-8">
+    <title>Unquitube</title>
+    <link type="text/css" href="app.css" rel="stylesheet">
+    <link type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+    {{ 'index page' }}
+
+    <a href="#!/">home</a>
+    <a href="#!/player">player</a>
+
+    <!-- AngularRouting -->
+    <div ng-view></div> 
+
+    <!-- ANGULAR JS -->
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+    <!-- APP -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app/views/home/home.js"></script>
+    <script type="text/javascript" src="app/views/player/player.js"></script>
+</body>
+</html>

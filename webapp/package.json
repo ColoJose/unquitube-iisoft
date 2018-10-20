@@ -1,0 +1,44 @@
+{
+  "name": "unquitube",
+  "version": "0.1.0",
+  "description": "TP Integrador de la materia \"Elementos de Ingeniería de Software\", Universidad de Quilmes",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/startserver/bin/startserver -p 8000",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ColoJose/unquitube-iisoft.git"
+  },
+  "author": "espinola.abel.e@gmail.com",
+  "contributors": [
+    {
+      "name": "Facundo Videla",
+      "email": "facundokhalil@gmail.com"
+    },
+    {
+      "name": "José Sanchez",
+      "email": "msanchez.jose.94@gmail.com"
+    },
+    {
+      "name": "Julian Uriel Espinoza",
+      "email": "¿?"
+    },
+    {
+      "name": "Abel Espínola",
+      "email": "espinola.abel.e@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ColoJose/unquitube-iisoft/issues"
+  },
+  "homepage": "https://github.com/ColoJose/unquitube-iisoft#readme",
+  "dependencies": {
+    "angular": "^1.7.5",
+    "angular-route": "^1.7.5",
+    "bootstrap": "^4.1.3",
+    "startserver": "^1.3.8"
+  }
+}
