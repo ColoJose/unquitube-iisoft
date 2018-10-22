@@ -8,6 +8,16 @@ app.controller("unquiTubeCtrl", [
     UnquiTubeCtrl
 ]);
 
+// app.config(function($sce) {
+//     $sce.trustAsResourceUrl("https://www.youtube.com/**");
+// });
+
+app.config( ['$sceDelegateProvider', function($sceDelegateProvider)
+    {
+        $sceDelegateProvider.resourceUrlWhitelist(['self','https://www.youtube.com/**']); 
+    }
+]);
+
 /**
  * Controller principal de la página
  */
@@ -27,18 +37,19 @@ function UnquiTubeCtrl($scope, $log) {
      * */
     $scope.$root.$on("$routeChangeSuccess", (angularEvent, current, previous)=>{
         let mainTitle = "UnquiTube";
-        let pageName = null;
 
-        switch (current.originalPath) {
-            case "/player":
-                pageName = "Player";
-                break;
-        }
-        if (pageName) {
-            setPageTitle(mainTitle + " - " + pageName)
+        if (current.$$route.aCustomTitle) { // NOTA: "aCustomTitle" no es de angular. Lo meto para obtener un título desde la página ruteada
+            setPageTitle(mainTitle + " - " + current.$$route.aCustomTitle)
             return;
         }
         setPageTitle(mainTitle)
     });
 
+}
+
+
+
+window.scp = function ($0) {
+    window.scpp = angular.element($0).scope();
+    return scpp;
 }

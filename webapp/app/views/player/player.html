@@ -1,5 +1,26 @@
-<section id="player-container">
+<div id="player-container">
 
-    {{ 'testing player page' }}
+    <h1>{{ playerCtrl.playing.title }}</h1>
+    <section id="player-video-container" class="clearfix">
+        <div id="player-video-frame">
+            <iframe width="720" height="400" ng-src="{{ playerCtrl.playing.url }}" ng-if="playerCtrl.playing"></iframe>
+        </div>
+        <div id="player-playlist">
+            <h2>Lista de Reproducción</h2>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="video in playerCtrl.playlist">
+                        {{ ($index + 1) + " - " + video.title }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="player-comments">
+        <h2>Comentarios/Chat</h2>
+        <div>
+            TODO
+        </div>
+    </section>
 
-</section>
+</div>

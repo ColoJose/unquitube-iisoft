@@ -1,3 +1,38 @@
-#player-container {
-    color: green;
+#player-video-container {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+#player-video-container > #player-video-frame {
+    float: left;
+}
+
+#player-video-container > #player-playlist {
+    overflow: hidden;
+    height: 400px; /* IDEM al tamaño del iframe */
+}
+
+#player-video-container > #player-playlist > h2 {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#player-video-container > #player-playlist ul .list-group-item {
+    border-radius: 0px;
+}
+
+#player-video-container > #player-playlist div {
+    height: 100%;
+    background-color: grey;
+    overflow: auto;
+}
+
+#player-container #player-video-container #player-video-frame {
+    margin-right: 20px;
+}
+
+#player-container h1 {
+    font-size: 1.5em;
+    margin-left: 20px;
 }

@@ -1,22 +1,31 @@
 "use strict";
 
-app.config(function($routeProvider) {
+const PATH = "/player";
 
+app
+.config(function($routeProvider) {
     $routeProvider
-        .when("/player", {
+        .when(PATH, {
             templateUrl : "./app/views/player/player.html",
-            controller: ["$scope", "$log", PlayerCtrl],
-            controllerAs: "playerCtrl"
+            controller: ["$scope", "$log", "UnquiTubeService", PlayerCtrl],
+            controllerAs: "playerCtrl",
+            aCustomTitle: "Player"
         }
     );
-
 });
 
 /**
  * Controller de la página player
  */
-function PlayerCtrl($scope, $log) {
+function PlayerCtrl($scope, $log, UnquiTubeService) {
 
-    $scope.title = "Player";
+    const self = this;
+
+    self.playlist = UnquiTubeService.getPlaylist("sarasa");
+
+    self.playing = self.playlist[0];
+
+    // const iframe = document.getElementById("player-video-frame").getElementsByTagName("iframe")[0];
+    // iframe.src = self.playing.url;
 
 }
