@@ -13,7 +13,11 @@
 ---- Server: TomCat
 
 -- Frontend
+
 ---- Lenguaje: JavaScript, Css, Html
+
 ---- Framework: AngularJS
+
 ---- Librerias: Bootstrap
+
 ---- Server: Node
