@@ -3,9 +3,13 @@
 
 ## Tecnologias:
 -- Backend
+
 ---- Lenguaje: Java
+
 ---- Framework: Spring
+
 ---- BD: MySQL
+
 ---- Server: TomCat
 
 -- Frontend
