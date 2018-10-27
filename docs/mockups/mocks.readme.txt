@@ -1,0 +1,9 @@
+¿Qué herramienta usar para hacer mockups?
+** Pencil Project ** : Es una herramienta open source disponible para Windows y Linux
+https://pencil.evolus.vn/
+
+¿Cómo hacer un mockup?
+https://www.youtube.com/watch?v=WBzjz92TYBI
+
+¿Cómo hacer mocks interactivos?
+https://www.youtube.com/watch?v=o0nOBiK4cd8
