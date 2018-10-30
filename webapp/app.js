@@ -23,6 +23,8 @@ app.config( ['$sceDelegateProvider', function($sceDelegateProvider)
  */
 function UnquiTubeCtrl($scope, $log) {
 
+    $scope.$root.service = "http://localhost:9096";
+
     /**
      * Actualiza el nombre de la página mostrado por el browser en la barra de título
      */

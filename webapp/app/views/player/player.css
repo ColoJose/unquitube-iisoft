@@ -9,7 +9,7 @@
 
 #player-video-container > #player-playlist {
     overflow: hidden;
-    height: 400px; /* IDEM al tamaño del iframe */
+    height: 450px; /* tamaño del iframe + algo de espacio para mostrar el botón */
 }
 
 #player-video-container > #player-playlist > h2 {
@@ -22,9 +22,11 @@
     border-radius: 0px;
 }
 
-#player-video-container > #player-playlist div {
-    height: 100%;
-    background-color: grey;
+#player-video-container > #player-playlist > div:first-of-type {
+    height: 370px; /* video container height - playlist header height (400px - 30px = 370px) */
+    position: relative;
+    bottom: 0px;
+    /* background-color: grey; */
     overflow: auto;
 }
 
@@ -35,4 +37,8 @@
 #player-container h1 {
     font-size: 1.5em;
     margin-left: 20px;
+}
+
+#player-add-video-btn {
+    margin-top: 5px;
 }
