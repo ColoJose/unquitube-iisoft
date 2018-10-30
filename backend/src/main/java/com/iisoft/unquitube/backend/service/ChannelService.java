@@ -1,5 +1,6 @@
 package com.iisoft.unquitube.backend.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -43,6 +44,11 @@ public class ChannelService {
 		ChannelDTO foundedChannel = optionalChannel.get();
 		foundedChannel.getPlaylist().size(); // hack para traer lista lazy
 		return foundedChannel;
+	}
+
+	public List<ChannelDTO> getAllChannels() {
+		// TODO Auto-generated method stub
+		return this.channelRepository.findAll();
 	}
 	
 }
