@@ -10,5 +10,4 @@ import java.util.List;
 @Repository("VideoRepository")
 public interface VideoRepository extends JpaRepository<VideoDTO, Serializable> {
     public abstract VideoDTO findById(Integer id);
-    public abstract List<VideoDTO> findByName(String name);
 }

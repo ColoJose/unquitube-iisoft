@@ -1,10 +1,19 @@
-app.service("UnquiTubeService", ["$http", UnquiTubeService]);
+app.service("UnquiTubeService", ["$http", "$rootScope", UnquiTubeService]);
 
-function UnquiTubeService($http) {
+function UnquiTubeService($http,$rootScope) {
 
     const self = this;
 
-    self.getPlaylist = function (playlistType) {
+    self.getPlaylist = function (playlistType, successCallback, errorCallback) {
+        $http.get($rootScope.service + "/channel/1").then( 
+            function (response) {
+                successCallback && successCallback(response);
+            },
+            function (error) {
+                errorCallback && errorCallback(error);
+            }
+        );
+        /*
         // HARDCODEADO para pruebas ********************************************************************
         return [
             new Video("Escape Room Trailer #1 (2019) | Movieclips Trailers", "https://www.youtube.com/embed/8W6yYBAUxv4", ""),
@@ -25,12 +34,18 @@ function UnquiTubeService($http) {
             new Video("Mid90s Trailer #1 (2018) | Movieclips Trailers", "https://www.youtube.com/embed/zXzSE0uqmjI", ""), 
             new Video("Can You Ever Forgive Me? Trailer #1 (2018) | Movieclips Trailers", "https://www.youtube.com/embed/OVZ1u36nrns", ""), 
             new Video("What They Had Trailer #1 (2018) | Movieclips Trailers", "https://www.youtube.com/embed/AoEsF02gnUQ", ""),
-        ];
+        ];*/
     };
 
     self.saveVideo = function (videoToSave, successCallback, errorCallback) {
-        // HARDCODEADO para pruebas ********************************************************************
-        successCallback();
+        $http.post($rootScope.service + "/channel/1/video", videoToSave).then( 
+            function (response) {
+                successCallback && successCallback(response);
+            },
+            function (error) {
+                errorCallback && errorCallback(error);
+            }
+        );
     };
 
 }

@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.iisoft.unquitube.backend.dto.ChannelDTO;
 
 @Repository
-public interface ChannelRepository extends JpaRepository<ChannelDTO, Integer>{
-
+public interface ChannelRepository extends JpaRepository<ChannelDTO, Integer> {	
 }

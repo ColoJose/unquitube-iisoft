@@ -26,7 +26,7 @@ public class ChannelController {
 		this.channelService = channelService;
 	}
 
-	@RequestMapping(path="{channelId}", method=RequestMethod.POST)
+	@RequestMapping(path="{channelId}/video", method=RequestMethod.POST)
 	public ResponseEntity<?> saveVideo(@RequestBody VideoDTO newVideo, @PathVariable Integer channelId) {
 		try {
 			logger.info("saveVideo - request to save new video for channel with id=" + channelId + ". Received video=" + newVideo);
@@ -38,6 +38,22 @@ public class ChannelController {
 		}
 		catch(Exception e) {
 			logger.error("saveVideo - error while trying to save a new video", e);
+			return ResponseEntity.badRequest().build();
+		}
+	}
+	
+	@RequestMapping(path="{channelId}", method=RequestMethod.GET)
+	public ResponseEntity<?> getChannelVideo(@PathVariable Integer channelId) {
+		try {
+			logger.info("getChannel - request channel with id=" + channelId + ".");
+
+			ChannelDTO updatedChannel = this.channelService.getChannel(channelId);
+			
+			logger.info("getChannel - channel succesfully retrieved");
+			return ResponseEntity.ok().body(updatedChannel);
+		}
+		catch(Exception e) {
+			logger.error("getChannel - error while trying to get a channel", e);
 			return ResponseEntity.badRequest().build();
 		}
 	}
