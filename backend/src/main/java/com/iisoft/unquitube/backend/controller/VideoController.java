@@ -14,7 +14,7 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
-    @PutMapping("/video")
+    @PostMapping("/video")
     public boolean createVideo(@RequestBody @Valid VideoDTO userDTO){
         return videoService.create(userDTO);
     }
