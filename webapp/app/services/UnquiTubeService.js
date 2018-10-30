@@ -28,6 +28,11 @@ function UnquiTubeService($http) {
         ];
     };
 
+    self.saveVideo = function (videoToSave, successCallback, errorCallback) {
+        // HARDCODEADO para pruebas ********************************************************************
+        successCallback();
+    };
+
 }
 
 function Video(title, url, description) {

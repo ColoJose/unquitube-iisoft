@@ -15,12 +15,51 @@
                 </ul>
             </div>
             <div id="player-add-video-btn">
-                <button class="btn btn-secondary">
+                <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#add-video-modal">
                     <i class="fas fa-plus"></i>
                     Agregar Video
                 </button>
             </div>
         </div>
     </section>
+
+    <!-- Modal Agregar Video -->
+    <div class="modal fade" id="add-video-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <form name="playerAddVideo" class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar video al canal:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="playerAddVideo_videoName">Nombre del nuevo video</label>
+                        <input type="text" class="form-control" id="playerAddVideo_videoName" placeholder="Ingrese el nombre que desea darle al video">
+                    </div>
+                    <div class="form-group">
+                        <label for="playerAddVideo_videoUrl">URL del video</label>
+                        <input type="text" class="form-control" id="playerAddVideo_videoUrl" placeholder="Complete este campo con la dirección URL del video">
+                    </div>
+                    <div class="form-group">
+                        <label for="playerAddVideo_videoThumbnailUrl">URL de imagen previa (thumbnail)</label>
+                        <input type="text" class="form-control" id="playerAddVideo_videoThumbnailUrl" placeholder="(Opcional) Ingrese una URL de una imagen miniatura del video">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="playerCtrl.saveVideo()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast guardado video exitoso -->
+    <div class="alert alert-success" role="alert" id="player-video-successfully-saved-toast">
+        Video guardado exitosamente!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 
 </div>
