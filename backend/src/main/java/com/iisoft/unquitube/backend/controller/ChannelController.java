@@ -1,5 +1,7 @@
 package com.iisoft.unquitube.backend.controller;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,5 +59,24 @@ public class ChannelController {
 			return ResponseEntity.badRequest().build();
 		}
 	}
+	
+	@RequestMapping(path="/channels", method=RequestMethod.GET)
+	public ResponseEntity<?> getAllChannels(){
+		try {
+			logger.info(" get all channels");
+
+			List<ChannelDTO> channels = this.channelService.getAllChannels();
+			
+			logger.info("getChannel - channel succesfully retrieved");
+			return ResponseEntity.ok().body(channels);
+		}
+		catch(Exception e) {
+			logger.error("getAllChannels - error while trying to get all channels", e);
+			return ResponseEntity.badRequest().build();
+		}
+		
+	}
+	
+	
 	
 }

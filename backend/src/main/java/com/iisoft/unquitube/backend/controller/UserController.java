@@ -22,7 +22,7 @@ public class UserController {
 
     @PutMapping("/user")
     public boolean createUser(@RequestBody @Valid UserDTO userDTO){
-        return userService.create(userDTO);
+        return userService.create(userDTO); 
     }
 
     @GetMapping("/users")
