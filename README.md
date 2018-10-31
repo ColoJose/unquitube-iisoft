@@ -2,22 +2,23 @@
   Proyecto de aplicacion web para reproduccion de videos en real time entre diferentes usuarios.
 
 ## Tecnologias:
--- Backend
 
----- Lenguaje: Java
+####Backend
 
----- Framework: Spring
+- Lenguaje: Java
 
----- BD: MySQL
+- Framework: Spring
 
----- Server: TomCat
+- BD: MySQL
 
--- Frontend
+- Server: TomCat
 
----- Lenguaje: JavaScript, Css, Html
+#### Frontend
 
----- Framework: AngularJS
+- Lenguaje: JavaScript, Css, Html
 
----- Librerias: Bootstrap
+- Framework: AngularJS
 
----- Server: Node
+- Librerias: Bootstrap
+
+- Server: Node
