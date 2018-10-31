@@ -22,6 +22,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService) {
     const self = this;
 
     self.channel = null;
+    self.urlRegex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
     UnquiTubeService.getPlaylist("sarasa", 
         function(response) {
@@ -36,24 +37,32 @@ function PlayerCtrl($scope, $log, UnquiTubeService) {
 
     function updatePlaylist(channel) {
         self.channel = channel;
+        self.channel.playlist.sort( (a,b) => a.id - b.id);
         self.playlist = self.channel.playlist; 
     }
 
 
     // const iframe = document.getElementById("player-video-frame").getElementsByTagName("iframe")[0];
     // iframe.src = self.playing.url;
-
+    self.sendingNewVideo = false;
     self.saveVideo = function () {
+        self.sendingNewVideo = true;
         UnquiTubeService.saveVideo(self.newVideo, 
             function success(response) {
-                updatePlaylist(response.data);
                 $('#add-video-modal').modal("hide");
-                $("#player-video-successfully-saved-toast").alert();
+                updatePlaylist(response.data);
+
+                $('#player-video-successfully-saved-toast').show()
+                setTimeout(function () {
+                    $('#player-video-successfully-saved-toast').hide()
+                }, 5000);
+                self.sendingNewVideo = false;
                 console.log("Guardado de video exitoso");
             },
             function error(error) {
                 $('#add-video-modal').modal("hide");
                 window.alert("Sucedio un error al intentar guardar el video");
+                self.sendingNewVideo = false;
                 console.error(error);
             }
         );

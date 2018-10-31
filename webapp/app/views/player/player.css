@@ -42,3 +42,12 @@
 #player-add-video-btn {
     margin-top: 5px;
 }
+
+#player-video-successfully-saved-toast {
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    position: fixed;
+    margin-left: 30px;
+    right: 20px;
+}
