@@ -39,7 +39,7 @@ public class ChannelService {
 		Optional<ChannelDTO> optionalChannel = this.channelRepository.findById(channelId);
 		
 		if (!optionalChannel.isPresent())
-			throw new RuntimeException("channel with id=" + channelId + " was not found");
+			return null;
 		
 		ChannelDTO foundedChannel = optionalChannel.get();
 		foundedChannel.getPlaylist().size(); // hack para traer lista lazy
@@ -47,8 +47,18 @@ public class ChannelService {
 	}
 
 	public List<ChannelDTO> getAllChannels() {
-		// TODO Auto-generated method stub
 		return this.channelRepository.findAll();
+	}
+
+	public ChannelDTO saveChannel(ChannelDTO newChannel) {
+		return this.channelRepository.save(newChannel);
+	}
+
+	public boolean deleteChannel(Integer channelId) {
+		if (!this.channelRepository.existsById(channelId))
+			return false;
+		this.channelRepository.deleteById(channelId);
+		return true;
 	}
 	
 }

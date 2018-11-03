@@ -1,5 +1,6 @@
 package com.iisoft.unquitube.backend.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author aee
+ *
+ */
 @Entity
 @Table(name="channel")
 public class ChannelDTO {
@@ -22,6 +27,13 @@ public class ChannelDTO {
 	@OneToMany(cascade=CascadeType.ALL)
 	@Column(name="playlist")
 	private Set<VideoDTO> playlist;
+	private HashSet<String> tags;
+	
+	
+	public ChannelDTO() {
+		this.playlist = new HashSet<VideoDTO>();
+		this.tags = new HashSet<String>();
+	}
 	
 	public String getName() {
 		return name;
@@ -41,6 +53,13 @@ public class ChannelDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public HashSet<String> getTags() {
+		return tags;
+	}
+	public void setTags(HashSet<String> tags) {
+		this.tags = tags;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,8 +67,10 @@ public class ChannelDTO {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((playlist == null) ? 0 : playlist.hashCode());
+		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -74,12 +95,17 @@ public class ChannelDTO {
 				return false;
 		} else if (!playlist.equals(other.playlist))
 			return false;
+		if (tags == null) {
+			if (other.tags != null)
+				return false;
+		} else if (!tags.equals(other.tags))
+			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + "]";
+		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + ", tags=" + tags + "]";
 	}
 	
 }

@@ -24,7 +24,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService) {
     self.channel = null;
     self.urlRegex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
-    UnquiTubeService.getPlaylist("sarasa", 
+    UnquiTubeService.getPlaylist("debería ser el id de un canal", 
         function(response) {
             updatePlaylist(response.data);
             self.playing = self.playlist[0];
