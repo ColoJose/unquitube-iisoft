@@ -4,8 +4,9 @@ function UnquiTubeService($http,$rootScope) {
 
     const self = this;
 
-    self.getPlaylist = function (playlistType, successCallback, errorCallback) {
-        $http.get($rootScope.service + "/channel/1").then( 
+    self.getPlaylist = function (channelId, successCallback, errorCallback) {
+        channelId = 1; // TODO: HARDCODEADO para pruebas *************************************************************************
+        $http.get($rootScope.service + "/channel/" + channelId).then(  
             function (response) {
                 successCallback && successCallback(response);
             },
