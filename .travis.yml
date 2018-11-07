@@ -1,3 +1,11 @@
-language: java
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+matrix:
+  include:
+    language: java
+
+    language: javascript
+   
+before_script:
+  - composer install --no-interaction
+  
+script:
+- backend/src/test/java/com/iis
