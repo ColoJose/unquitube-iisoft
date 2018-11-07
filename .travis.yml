@@ -1,8 +1,4 @@
-matrix:
-  include:
-    language: java
-
-    language: javascript
+language: java
 
 script: ant build
 
