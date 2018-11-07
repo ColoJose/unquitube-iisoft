@@ -76,13 +76,27 @@ function UnquiTubeService($http,$rootScope) {
         );
     };
 
-    self.getChannelList = function() {
+    self.getChannelListHARD = function() {
         // HARDCODEADO para prubeas
         return [
             new Channel("Jazz All Night", listaEj1),
             new Channel("Electro4Life", listaEj2),
             new Channel("Clasica", listaEj3)
         ]
+    }
+
+    self.getChannelsList = function(successCallback, errorCallback) {
+        //channelId = 1
+        //En realidad hay llamar al endpoint channel para que retorne la lista de canales
+        //$http.get($rootScope.service + "/channel/" + channelId).then(
+        $http.get($rootScope.service + "/channel/").then(
+            function (response) {
+                successCallback && successCallback(response);
+            },
+            function (error) {
+                errorCallback && errorCallback(error);
+            }
+        );
     }
 
 }

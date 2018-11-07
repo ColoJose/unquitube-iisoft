@@ -6,20 +6,20 @@
     width: 1px;
     height: 1px;
   }
-  
+
   ::-webkit-scrollbar-button {
     width: 1px;
     height: 1px;
   }
-  
+
   body {
     background: #111;
   }
-  
+
   div {
     box-sizing: border-box;
   }
-  
+
   div.scrollmenu {
     overflow: auto;
     white-space: nowrap;

@@ -8,11 +8,11 @@
                 <div class="row" ng-repeat="canal in homeCtrl.channelsList">
                     <div class="col">
                         <div class="canal">
-                            <span class="tituloCanal">{{ canal.title }}</span>
+                            <span class="tituloCanal">{{ canal.name }}</span>
                             <div class="scrollmenu squares">
 
                                 <!--Video-->
-                                <div class="video" ng-repeat="video in canal.videos">
+                                <div class="video" ng-repeat="video in canal.playlist">
                                     <img src="https://img.youtube.com/vi/{{ video.url }}/sddefault.jpg" alt="Imagen {{ video.title }}"
                                          width="210px">
                                     <a id="video-title" class="tituloVideo"
