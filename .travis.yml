@@ -3,6 +3,12 @@ matrix:
     language: java
 
     language: javascript
+   
+before_script:
+  - composer install --no-interaction
+  
+script:
+  - backend/src/test/java/com/iisoft/unquitube/backend/controller/ChannelControllerTest.java
 
 
 
