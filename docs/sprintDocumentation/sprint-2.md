@@ -2,28 +2,32 @@
 
 #### Objetivos a cumplir
 
-- Lista de canales buscando en base de datos
-- Implementar CI
-- Gráfico de velocidad
-- Reporte de cobertura
-- Testing
-
-#### Estimación
-- stuffs 
-- stuffs
-- stuufs
-#### User stories
 - 
--
--
-### High, low, sad
+- 
+- 
+- 
+- 
 
-* High:
-	*
-	*
-* Low:
-	*
-	*
-* Sad:
-	*
-	* 
+Tarea | Estimacion
+
+1. Lista de canales buscando en base de datos (3)
+2. Implementar CI (5)
+3. Gráfico de velocidad (2)
+4. Reporte de cobertura (2)
+5. Testing (5)
+
+### Retrospectiva
+
+1. High
+* Se implemento testing de backend
+* 
+
+2. Low
+* No se completaron todas las tareas
+* No pudimos andar CI ni cobertura
+
+3. Sad
+* Desmotivación del equipo al no poder completar todas las tareas
+
+### Velocidad
+Puntos: 10
