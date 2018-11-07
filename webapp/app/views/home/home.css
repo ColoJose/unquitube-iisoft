@@ -2,31 +2,6 @@
     color: red;
 }
 
-/*
-.horizontal-scroll-wrapper {
-    width: 100px;
-    height: 50%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transform: rotate(-90deg);
-    transform-origin: right top;
-    transform:rotate(-90deg) translateY(-100px);
-    margin: 0 0 0 100px;
-    padding-top: 100px;
-  }
-
-  .horizontal-scroll-wrapper > div {
-    width: 100px;
-    height: 100px;
-    transform: rotate(90deg);
-    transform-origin: right top;
-    background-color: aquamarine;
-    padding: 10px 0 0 0;
-    margin: 10px 0;
-  }
-
-  */
-
   ::-webkit-scrollbar {
     width: 1px;
     height: 1px;
@@ -57,13 +32,7 @@
     /*background: #cab;
     padding: 5px;*/
   }
-/*
-  .squares > div {
-    width: 250px;
-    height: 250px;
-    margin: 10px 0;
-  }
-*/
+
   .video {
     width: 210px;
     text-align:left;
@@ -86,33 +55,15 @@
     width: 210px;
   }
 
-  /*
-  .horizontal-scroll-wrapper {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: calc(250px + 1px);
-    max-height: 750px;
-    margin: 0;
-    padding-top: 1px;
-    background: #abc;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-transform: rotate(-90deg) translateY(-250px);
-            transform: rotate(-90deg) translateY(-250px);
-    -webkit-transform-origin: right top;
-            transform-origin: right top;
-  }
-  .horizontal-scroll-wrapper > div {
-    display: block;
-    padding: 5px;
-    background: #cab;
-    -webkit-transform: rotate(90deg);
-            transform: rotate(90deg);
-    -webkit-transform-origin: right top;
-            transform-origin: right top;
-  }
+  .tituloVideo {
+    /*
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
   */
-  
-  
+    width: 200px;
+    height: 42px;
+    overflow: hidden;
+    color: black;
+  }
+

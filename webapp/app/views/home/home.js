@@ -5,8 +5,9 @@ app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl : "./app/views/home/home.html",
-            controller: ["$scope", "$log", HomeCtrl],
-            controllerAs: "homeCtrl"
+            controller: ["$scope", "$log", "UnquiTubeService", HomeCtrl],
+            controllerAs: "homeCtrl",
+            aCustomTitle: "Home"
         }
     );
 
@@ -15,8 +16,10 @@ app.config(function($routeProvider) {
 /**
  * Controller de la página home
  */
-function HomeCtrl($scope, $log) {
+function HomeCtrl($scope, $log, UnquiTubeService) {
 
-    
+    const self = this;
+
+    self.channelsList = UnquiTubeService.getChannelList();
 
 }
