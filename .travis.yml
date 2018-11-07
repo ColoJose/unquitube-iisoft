@@ -3,7 +3,3 @@ matrix:
     language: java
 
     language: javascript
-
-script:
-  - backend/pom.xml
-
