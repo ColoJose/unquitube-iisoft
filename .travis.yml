@@ -8,7 +8,6 @@ before_script:
   - composer install --no-interaction
   
 script:
-  - backend/src/test/java/com/iisoft/unquitube/backend/controller/ChannelControllerTest.java
-
+  - backend/pom.xml
 
 
