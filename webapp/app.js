@@ -7,7 +7,7 @@ app.controller("unquiTubeCtrl", [
     "$log",
     UnquiTubeCtrl
 ]);
-
+// prueba (esto se va)
 // app.config(function($sce) {
 //     $sce.trustAsResourceUrl("https://www.youtube.com/**");
 // });
