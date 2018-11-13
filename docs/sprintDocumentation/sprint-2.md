@@ -2,25 +2,32 @@
 
 #### Objetivos a cumplir
 
-- Que al entrar un canal, el cual por ahora va a estar hardcodeado, // completar
-- Poder agregar videos a la lista
-- La pantalla de home donde vamos a ver los canales con una previsualización de la lista que tienen
-#### Estimación
-- stuffs 
-- stuffs
-- stuufs
-#### User stories
 - 
--
--
-### High, low, sad
+- 
+- 
+- 
+- 
 
-* High:
-	*
-	*
-* Low:
-	*
-	*
-* Sad:
-	*
-	* 
+Tarea | Estimacion
+
+1. Lista de canales buscando en base de datos (3)
+2. Implementar CI (5)
+3. Gráfico de velocidad (2)
+4. Reporte de cobertura (2)
+5. Testing (5)
+
+### Retrospectiva
+
+1. High
+* Se implemento testing de backend
+* 
+
+2. Low
+* No se completaron todas las tareas
+* No pudimos andar CI ni cobertura
+
+3. Sad
+* Desmotivación del equipo al no poder completar todas las tareas
+
+### Velocidad
+Puntos: 10
