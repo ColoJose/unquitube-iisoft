@@ -1,0 +1,33 @@
+<div id="home-container" style="padding-top: 50px">
+
+    <main role="main" class="container">
+        <div class="starter-template">
+            <div class="container">
+
+                <!--Canal-->
+                <div class="row" ng-repeat="canal in searchCtrl.channelsList">
+                    <div class="col">
+                        <div class="canal">
+                            <span class="tituloCanal">{{ canal.name }}</span>
+                            <div class="scrollmenu squares">
+
+                                <!--Video-->
+                                <div class="video" ng-repeat="video in canal.playlist">
+                                    <img src="https://img.youtube.com/vi/{{ video.url }}/sddefault.jpg" alt="Imagen {{ video.title }}"
+                                         width="210px">
+                                    <a id="video-title" class="tituloVideo"
+                                       href="https://www.youtube.com/watch?v=NsB2eya4nFA">
+                                        <div class="tituloVideo"> {{ video.title }}</div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</div>
