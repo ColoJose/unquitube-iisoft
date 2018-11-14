@@ -4,8 +4,10 @@ notifications:
       - msanchez.jose.94@gmail.com
 
 language: java
-  jdk:
-    - oraclejdk8
+
+script:
+        - cd backend/
+        - mvn test
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
