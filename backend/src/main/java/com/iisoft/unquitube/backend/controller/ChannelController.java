@@ -124,7 +124,7 @@ public class ChannelController {
 		}
 	}
 
-	@RequestMapping(path = "search/{tags}", method = RequestMethod.POST)
+	@RequestMapping(path = "search/{tags}", method = RequestMethod.GET)
 	public ResponseEntity<?> getChannelsByTag(@PathVariable String tags){
 		try {
 			String[] tagsList = tags.split("!");
