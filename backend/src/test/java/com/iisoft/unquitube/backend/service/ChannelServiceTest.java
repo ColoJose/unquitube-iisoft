@@ -2,9 +2,8 @@ package com.iisoft.unquitube.backend.service;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.nio.channels.Channel;
+import java.util.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -104,6 +103,20 @@ public class ChannelServiceTest {
 		boolean wasDeleted = this.channelService.deleteChannel(10);
 		
 		assertFalse(wasDeleted);
+	}
+
+	@Test
+	public void GIVEN_a_request_to_get_channels_by_tags_WHEN_searching_it_THEN_should_return_requested_channels() {
+		Set<String> serchedTags = new HashSet<String>();
+		serchedTags.add("jazz");
+		Set<ChannelDTO> requestedChannels = new HashSet<ChannelDTO>();
+		requestedChannels.add(new ChannelDTO());
+
+		when(this.channelRepository.findByTagsIn(serchedTags)).thenReturn(requestedChannels);
+
+		Set<ChannelDTO> recoveredChannel = this.channelService.getChannelsByTag(serchedTags);
+
+		assertEquals(requestedChannels, recoveredChannel);
 	}
 
 }
