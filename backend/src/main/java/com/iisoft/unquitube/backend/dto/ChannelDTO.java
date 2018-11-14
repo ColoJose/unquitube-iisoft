@@ -20,7 +20,8 @@ public class ChannelDTO {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@Column(name="playlist")
 	private Set<VideoDTO> playlist;
-	private HashSet<String> tags;
+	@ElementCollection
+	private Set<String> tags;
 	
 	
 	public ChannelDTO() {
@@ -46,7 +47,7 @@ public class ChannelDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public HashSet<String> getTags() {
+	public Set<String> getTags() {
 		return tags;
 	}
 	public void setTags(HashSet<String> tags) {

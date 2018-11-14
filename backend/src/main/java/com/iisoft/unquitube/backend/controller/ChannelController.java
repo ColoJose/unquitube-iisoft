@@ -1,6 +1,10 @@
 package com.iisoft.unquitube.backend.controller;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +27,8 @@ public class ChannelController {
 	
 	private ChannelService channelService;
 	private static final Logger logger = LogManager.getLogger();
+
+	public ChannelController(){}
 	
 	@Autowired
 	public ChannelController(ChannelService channelService) {
@@ -114,6 +120,24 @@ public class ChannelController {
 		}
 		catch(Exception e) {
 			logger.error("saveVideo - error while trying to save a new video", e);
+			return ResponseEntity.badRequest().build();
+		}
+	}
+
+	@RequestMapping(path = "search/{tags}", method = RequestMethod.POST)
+	public ResponseEntity<?> getChannelsByTag(@PathVariable String tags){
+		try {
+			String[] tagsList = tags.split("!");
+			Set<String> tagsSet = new HashSet<>(Arrays.asList(tagsList));
+			Set<ChannelDTO> filteredChannels = this.channelService.getChannelsByTag(tagsSet);
+
+			Set<ChannelDTO> result = filteredChannels.stream()
+														.filter(c -> c.getTags().containsAll(tagsSet))
+														.collect(Collectors.toSet());
+
+			return ResponseEntity.status(HttpStatus.OK).body(result);
+		}catch (Exception e){
+			logger.error("Search video - error while trying to search a video", e);
 			return ResponseEntity.badRequest().build();
 		}
 	}
