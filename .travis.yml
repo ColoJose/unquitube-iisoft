@@ -1,4 +1,10 @@
+notifications:
+  email:
+    recipients:
+      - msanchez.jose.94@gmail.com
+
 language: java
+
 script:
         - cd backend/
         - mvn test
