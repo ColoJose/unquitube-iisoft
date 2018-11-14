@@ -99,6 +99,23 @@ function UnquiTubeService($http,$rootScope) {
         );
     }
 
+    self.getChannelsListByTag = function(tags,successCallback, errorCallback) {
+        $http.get($rootScope.service + "/channel/search/"+tags).then(
+            function (response) {
+                successCallback && successCallback(response);
+            },
+            function (error) {
+                errorCallback && errorCallback(error);
+            }
+        );
+    }
+
+    self.getSearchChannelList = function (tags) {
+        return [
+            new Channel(tags, listaEj1)
+        ]
+    }
+
 }
 
 function Video(title, url, description) {
@@ -108,8 +125,8 @@ function Video(title, url, description) {
 }
 
 function Channel(title, videos) {
-    this.title = title;
-    this.videos = videos;
+    this.name = title;
+    this.playlist = videos;
 }
 
 // algo para sacar links desde la pagina de youtube

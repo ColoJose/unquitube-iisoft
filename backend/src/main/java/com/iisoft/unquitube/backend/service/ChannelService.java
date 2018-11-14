@@ -1,10 +1,13 @@
 package com.iisoft.unquitube.backend.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -59,6 +62,10 @@ public class ChannelService {
 			return false;
 		this.channelRepository.deleteById(channelId);
 		return true;
+	}
+
+	public Set<ChannelDTO> getChannelsByTag(Set<String> tags){
+		return this.channelRepository.findByTagsIn(tags);
 	}
 	
 }
