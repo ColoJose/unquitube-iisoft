@@ -1,8 +1,14 @@
-matrix:
-  include:
-    language: java
+notifications:
+  email:
+    recipients:
+      - msanchez.jose.94@gmail.com
 
-    language: javascript
-   
+language: java
+
 script:
-  - backend/pom.xml
+        - cd backend/
+        - mvn test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
