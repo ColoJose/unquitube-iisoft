@@ -25,6 +25,10 @@ function UnquiTubeCtrl($scope, $log) {
 
     $scope.$root.service = "http://localhost:9096";
 
+    $scope.redireccionABusqueda = function () {
+        window.location = window.location.origin + "#!/search/" + $scope.searchTags.replace(/ /g,"")
+    };
+
     /**
      * Actualiza el nombre de la página mostrado por el browser en la barra de título
      */
