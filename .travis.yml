@@ -2,6 +2,7 @@ notifications:
   email:
     recipients:
       - msanchez.jose.94@gmail.com
+      - espinola.abel.e@gmail.com
 
 language: java
 
@@ -11,4 +12,14 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+## inicializo el servicio mysql en la virtual machine de travis
+service
+  - mysql
+
+## cambio el password del mysql para el usuario "root". Nuevo password "root"
+before_script:
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+
+
 
