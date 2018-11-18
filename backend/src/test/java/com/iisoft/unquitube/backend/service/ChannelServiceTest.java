@@ -2,7 +2,6 @@ package com.iisoft.unquitube.backend.service;
 
 import static org.junit.Assert.*;
 
-import java.nio.channels.Channel;
 import java.util.*;
 
 import org.junit.Before;

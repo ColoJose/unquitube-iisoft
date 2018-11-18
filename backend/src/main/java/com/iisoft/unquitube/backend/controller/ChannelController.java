@@ -28,8 +28,6 @@ public class ChannelController {
 	private ChannelService channelService;
 	private static final Logger logger = LogManager.getLogger();
 
-	public ChannelController(){}
-	
 	@Autowired
 	public ChannelController(ChannelService channelService) {
 		this.channelService = channelService;
@@ -127,6 +125,7 @@ public class ChannelController {
 	@RequestMapping(path = "search/{tags}", method = RequestMethod.GET)
 	public ResponseEntity<?> getChannelsByTag(@PathVariable String tags){
 		try {
+			logger.info("getChannelsByTag - request to retrieve channels by tags. tags = " + tags);
 			String[] tagsList = tags.split("!");
 			Set<String> tagsSet = new HashSet<>(Arrays.asList(tagsList));
 			Set<ChannelDTO> filteredChannels = this.channelService.getChannelsByTag(tagsSet);
@@ -135,9 +134,10 @@ public class ChannelController {
 														.filter(c -> c.getTags().containsAll(tagsSet))
 														.collect(Collectors.toSet());
 
+			logger.info("getChannelsByTag - channels retrieved. Founded " + result.size() + " channels");
 			return ResponseEntity.status(HttpStatus.OK).body(result);
 		}catch (Exception e){
-			logger.error("Search video - error while trying to search a video", e);
+			logger.error("getChannelsByTag - error while trying to search a video", e);
 			return ResponseEntity.badRequest().build();
 		}
 	}
