@@ -67,7 +67,7 @@ public class VideoDTO {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof VideoDTO))
 			return false;
 		VideoDTO other = (VideoDTO) obj;
 		if (id == null) {

@@ -5,10 +5,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-/**
- * @author aee
- *
- */
 @Entity
 @Table(name="channel")
 public class ChannelDTO {
@@ -71,7 +67,7 @@ public class ChannelDTO {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof ChannelDTO))
 			return false;
 		ChannelDTO other = (ChannelDTO) obj;
 		if (id == null) {
