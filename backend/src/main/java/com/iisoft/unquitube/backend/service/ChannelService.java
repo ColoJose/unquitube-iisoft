@@ -49,6 +49,11 @@ public class ChannelService {
 		return foundedChannel;
 	}
 
+	public ChannelDTO updateChannel(ChannelDTO channelDTO){
+		this.channelRepository.save(channelDTO);
+		return channelDTO;
+	}
+
 	public List<ChannelDTO> getAllChannels() {
 		return this.channelRepository.findAll();
 	}
