@@ -32,7 +32,6 @@ function UnquiTubeService($http,$rootScope) {
 
 
     self.getPlaylist = function (channelId, successCallback, errorCallback) {
-        channelId = 1; // TODO: HARDCODEADO para pruebas *************************************************************************
         $http.get($rootScope.service + "/channel/" + channelId).then(  
             function (response) {
                 successCallback && successCallback(response);

@@ -1,13 +1,13 @@
 "use strict";
 
-const PATH = "/player";
+const PATH = "/player/:idChannel";
 
 app
 .config(function($routeProvider) {
     $routeProvider
         .when(PATH, {
             templateUrl : "./app/views/player/player.html",
-            controller: ["$scope", "$log", "UnquiTubeService", PlayerCtrl],
+            controller: ["$scope", "$log", "UnquiTubeService", "$routeParams", PlayerCtrl],
             controllerAs: "playerCtrl",
             aCustomTitle: "Player"
         }
@@ -17,17 +17,18 @@ app
 /**
  * Controller de la página player
  */
-function PlayerCtrl($scope, $log, UnquiTubeService) {
+function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
 
     const self = this;
 
     self.channel = null;
     self.urlRegex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
-    UnquiTubeService.getPlaylist("debería ser el id de un canal", 
+    UnquiTubeService.getPlaylist($routeParams.idChannel,
         function(response) {
             updatePlaylist(response.data);
             self.playing = self.playlist[0];
+            self.playingurl = "https://www.youtube.com/embed/".concat(self.playing.url);
         },
         function(error) {
             window.alert("Sucedio un error al intentar obtener el canal");
@@ -38,7 +39,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService) {
     function updatePlaylist(channel) {
         self.channel = channel;
         self.channel.playlist.sort( (a,b) => a.id - b.id);
-        self.playlist = self.channel.playlist; 
+        self.playlist = self.channel.playlist;
     }
 
 
