@@ -9,12 +9,13 @@ language: java
 script:
         - cd backend/
         - mvn test
+        - "mvn cobertura:cobertura"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 ## inicializo el servicio mysql en la virtual machine de travis
-service
+service:
   - mysql
 
 ## cambio el password del mysql para el usuario "root". Nuevo password "root"
