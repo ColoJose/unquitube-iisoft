@@ -146,11 +146,14 @@
                 <h2>Nuevo Canal</h2>
             </div>
             <div class="modal-body">
-                <form>
+                <form name="newChannelForm">
                     <label for="inpNombreCanal">Nombre Canal</label>
-                    <input id="inpNombreCanal" class="form-control mr-sm-2" type="text" placeholder="Nombre Canal" aria-label="Nombre Canal">
+                    <input id="inpNombreCanal" name="inpNombreCanal" class="form-control mr-sm-2" type="text" placeholder="Nombre Canal" aria-label="Nombre Canal" ng-model="newChannel.name" required>
+                    <span ng-show="newChannelForm.inpNombreCanal.$touched && newChannelForm.inpNombreCanal.$invalid">El nombre es obligatorio<br></span>
                     <label for="inpTagsCanal">Tags</label>
-                    <input id="inpTagsCanal" class="form-control mr-sm-2" type="text" placeholder="Tags" aria-label="Tags">
+                    <input id="inpTagsCanal" class="form-control mr-sm-2" type="text" placeholder="Tags" aria-label="Tags" ng-model="tagsForNewChannel">
+                    <br>
+                    <button type="submit" class="btn btn-primary" ng-click="efectivoSaveChannel()" ng-show="newChannelForm.$valid">Guardar</button>
                 </form>
             </div>
             <div class="modal-footer">
