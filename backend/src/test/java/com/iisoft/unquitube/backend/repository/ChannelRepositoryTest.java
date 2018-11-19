@@ -62,7 +62,8 @@ public class ChannelRepositoryTest {
 	
 	@Autowired
 	private ChannelRepository channelRepository;
-/*
+
+	@Ignore
 	@Test
 	public void GIVEN_a_new_channel_WHEN_persisting_it_should_be_saved_with_an_id_THEN_recovered_channel_is_equals_to_original() {
 
@@ -74,7 +75,7 @@ public class ChannelRepositoryTest {
 		assertNotNull(savedChannel.getId());
 		savedChannel.setId(null);
 		assertEquals(channel, savedChannel);
-	}*/
+	}
 	
 	private ChannelDTO createChannel(String channelName, Integer numberOfVideos) {
 		ChannelDTO channel = new ChannelDTO();
