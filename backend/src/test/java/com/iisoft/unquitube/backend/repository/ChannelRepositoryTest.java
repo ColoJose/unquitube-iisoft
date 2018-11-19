@@ -13,6 +13,7 @@ import javax.persistence.Query;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,7 @@ public class ChannelRepositoryTest {
 	@Autowired
 	private ChannelRepository channelRepository;
 	
+	@Ignore
 	@Test
 	public void GIVEN_a_new_channel_WHEN_persisting_it_should_be_saved_with_an_id_THEN_recovered_channel_is_equals_to_original() {
 
