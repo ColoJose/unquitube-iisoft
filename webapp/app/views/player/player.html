@@ -43,15 +43,17 @@
                     </div>
                     <div class="form-group">
                         <label for="playerAddVideoForm_videoUrl">URL del video</label>
-                        <input type="text" class="form-control" name="newVideoUrl" id="playerAddVideoForm_videoUrl" ng-model="playerCtrl.newVideo.url" placeholder="Complete este campo con la dirección URL del video" ng-pattern="playerCtrl.urlRegex" required>
+                        <input type="text" class="form-control" name="newVideoUrl" id="playerAddVideoForm_videoUrl" ng-model="playerCtrl.newVideo.url" placeholder="https://www.youtube.com/watch?v=axkOqrLtDXo | https://youtu.be/axkOqrLtDXo" ng-pattern="playerCtrl.urlRegex" required>
                         <!-- <div class="invalid-feedback">
                             Debe cargar la URL correspondiente al nuevo video
                         </div> -->
                     </div>
+                    <!--
                     <div class="form-group">
                         <label for="playerAddVideoForm_videoThumbnailUrl">URL de imagen previa (thumbnail)</label>
                         <input type="text" class="form-control" name="newVideoThumbnailUrl" id="playerAddVideoForm_videoThumbnailUrl" ng-model="playerCtrl.newVideo.thumbnailUrl" placeholder="(Opcional) Ingrese una URL de una imagen miniatura del video" ng-pattern="playerCtrl.urlRegex">
                     </div>
+                    -->
                 </div>
                 <div class="modal-footer">
                     <i ng-if="playerCtrl.sendingNewVideo" class="fas fa-circle-notch fa-spin fa-2x"></i>

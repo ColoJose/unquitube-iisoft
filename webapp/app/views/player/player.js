@@ -22,7 +22,12 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     const self = this;
 
     self.channel = null;
-    self.urlRegex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
+    self.urlRegex = /(http|https):\/\/(www.youtube.com\/watch\?v=|youtu.be\/)(\w+$)/;
+    //Tipos de URLs validas:
+    //https://www.youtube.com/watch?v=axkOqrLtD
+    //https://youtu.be/axkOqrLtDXo
+
 
     UnquiTubeService.getPlaylist($routeParams.idChannel,
         function(response) {
@@ -48,7 +53,8 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     self.sendingNewVideo = false;
     self.saveVideo = function () {
         self.sendingNewVideo = true;
-        UnquiTubeService.saveVideo(self.newVideo, 
+        self.newVideo.url = self.newVideo.url.split("/").pop().split("=").pop();
+        UnquiTubeService.saveVideo($routeParams.idChannel, self.newVideo,
             function success(response) {
                 $('#add-video-modal').modal("hide");
                 updatePlaylist(response.data);

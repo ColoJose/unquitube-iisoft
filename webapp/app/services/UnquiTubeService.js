@@ -64,8 +64,8 @@ function UnquiTubeService($http,$rootScope) {
         ];*/
     };
 
-    self.saveVideo = function (videoToSave, successCallback, errorCallback) {
-        $http.post($rootScope.service + "/channel/1/video", videoToSave).then( 
+    self.saveVideo = function (idChannel, videoToSave, successCallback, errorCallback) {
+        $http.post($rootScope.service + "/channel/" + idChannel + "/video", videoToSave).then(
             function (response) {
                 successCallback && successCallback(response);
             },
