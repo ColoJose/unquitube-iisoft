@@ -39,6 +39,10 @@ function UnquiTubeCtrl($http, $scope, $log) {
         titleElement.text = aTitle;
     }
 
+    $('#add-channel-modal').on("show.bs.modal");
+
+    $('#add-channel-modal').on("hide.bs.modal");
+
     $scope.newChannel = {
         "id": 0,
         "name": "",
