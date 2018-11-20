@@ -3,6 +3,7 @@
 const app = angular.module("unquiTube", ["ngRoute"]);
 
 app.controller("unquiTubeCtrl", [
+    "$http",
     "$scope", 
     "$log",
     UnquiTubeCtrl
@@ -21,7 +22,7 @@ app.config( ['$sceDelegateProvider', function($sceDelegateProvider)
 /**
  * Controller principal de la página
  */
-function UnquiTubeCtrl($scope, $log) {
+function UnquiTubeCtrl($http, $scope, $log) {
 
     $scope.$root.service = "http://localhost:9096";
 
@@ -33,9 +34,51 @@ function UnquiTubeCtrl($scope, $log) {
      * Actualiza el nombre de la página mostrado por el browser en la barra de título
      */
     function setPageTitle(aTitle) {
+
         let titleElement = document.getElementsByTagName("head")[0].getElementsByTagName("title")[0];
         titleElement.text = aTitle;
     }
+
+    $('#add-channel-modal').on("show.bs.modal");
+
+    $('#add-channel-modal').on("hide.bs.modal");
+
+    $scope.newChannel = {
+        "id": 0,
+        "name": "",
+        "playlist": [],
+        "tags": []
+    };
+
+    $scope.tagsForNewChannel = "";
+
+    $scope.efectivoSaveChannel = function() {
+        $scope.newChannel.tags = $scope.tagsForNewChannel.replace(/ /g,"").split(",");
+
+        $scope.saveChannel($scope.newChannel,
+            function(response) {
+                $scope.newChannel.name = "";
+                $scope.newChannel.tags = [];
+                $scope.tagsForNewChannel = "";
+                document.getElementById('myModal').style.display = "none";
+                window.alert("Se guardo el canal de forma correcta");
+            },
+            function(error) {
+                window.alert("Sucedio un error al intentar guardar el canal");
+                console.error(error);
+            });
+    };
+
+    $scope.saveChannel = function (channelToSave, successCallback, errorCallback) {
+        $http.post($scope.service + "/channel/", channelToSave).then(
+            function (response) {
+                successCallback && successCallback(response);
+            },
+            function (error) {
+                errorCallback && errorCallback(error);
+            }
+        );
+    };
 
     /**
      * Event listener para eschuchar cuando el evento $routeChangeSuccess se dispara.
