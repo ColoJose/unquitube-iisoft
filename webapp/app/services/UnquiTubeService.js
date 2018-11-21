@@ -76,7 +76,11 @@ function UnquiTubeService($http,$rootScope) {
     };
 
     self.deleteChannel = function(idChannel) {
-        $http.delete(`${$rootScope.service}/channel/${idChannel}`)
+        $http.delete(`${$rootScope.service}/channel/${idChannel}`);
+    }
+
+    self.updateChannel = function(channel) {
+        $http.put(`${$rootScope.service}/channel/update`, channel);
     }
 
     self.getChannelListHARD = function() {

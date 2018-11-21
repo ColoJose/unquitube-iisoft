@@ -22,6 +22,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     const self = this;
 
     self.channel = null;
+    self.channelCopy = null;
 
     self.urlRegex = /(http|https):\/\/(www.youtube.com\/watch\?v=|youtu.be\/)(\w+$)/;
     //Tipos de URLs validas:
@@ -45,6 +46,16 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
         self.channel = channel;
         self.channel.playlist.sort( (a,b) => a.id - b.id);
         self.playlist = self.channel.playlist;
+    }
+
+    //----- MODIFICAR CANAL ------//
+    self.initChannelChange = function() {
+        self.channelCopy = {... self.channel};
+    }
+
+    self.updateChannel = function(){
+        UnquiTubeService.updateChannel(self.channelCopy);
+        window.location = window.location.origin;
     }
 
     //---- ELIMINAR CANAL ------//
