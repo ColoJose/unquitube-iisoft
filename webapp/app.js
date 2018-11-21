@@ -6,6 +6,7 @@ app.controller("unquiTubeCtrl", [
     "$http",
     "$scope", 
     "$log",
+    "$route",
     UnquiTubeCtrl
 ]);
 // prueba (esto se va)
@@ -22,7 +23,7 @@ app.config( ['$sceDelegateProvider', function($sceDelegateProvider)
 /**
  * Controller principal de la página
  */
-function UnquiTubeCtrl($http, $scope, $log) {
+function UnquiTubeCtrl($http, $scope, $log, $route) {
 
     $scope.$root.service = "http://localhost:9096";
 
@@ -60,7 +61,9 @@ function UnquiTubeCtrl($http, $scope, $log) {
                 $scope.newChannel.name = "";
                 $scope.newChannel.tags = [];
                 $scope.tagsForNewChannel = "";
-                document.getElementById('myModal').style.display = "none";
+                //document.getElementById('myModal').style.display = "none";
+                //$('#add-video-modal').modal("hide");
+                $route.reload();
                 window.alert("Se guardo el canal de forma correcta");
             },
             function(error) {
