@@ -42,15 +42,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <label>Nombre: </label>
-                    <input type="text" ng-model="playerCtrl.channelCopy.name">
-                    </br>
-                    <label>Tags: </label>
-                    <input type="text" ng-model="playerCtrl.channelCopy.tags">
-                    </br>
-                    <button type="button" ng-click="playerCtrl.updateChannel()" class="btn btn-secondary" data-toggle="modal" data-target="#modify-channel-modal">
-                        Aplicar
-                    </button>
+                    <form name="changeChannel" ng-submit="playerCtrl.updateChannel()">
+                        <label>Nombre: </label>
+                        <input name="newName" type="text" ng-model="playerCtrl.channelCopy.name" required>
+                        <span class="error" ng-show="changeChannel.newName.$touched && changeChannel.newName.$invalid">El nombre es obligatorio<br></span>
+                        </br>
+                        <label>Tags: </label>
+                        <input type="text" ng-model="playerCtrl.channelCopy.tags">
+                        </br>
+                        <button type="submit" class="btn btn-secondary" data-toggle="modal" ng-show="changeChannel.$valid" data-target="#modify-channel-modal">
+                            Modificar
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -101,5 +104,4 @@
     <div class="alert alert-success hide" role="alert" id="player-video-successfully-saved-toast" style="display: none">
         Video guardado exitosamente!
     </div>
-
 </div>

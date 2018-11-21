@@ -54,15 +54,30 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     }
 
     self.updateChannel = function(){
-        UnquiTubeService.updateChannel(self.channelCopy);
-        window.location = window.location.origin;
+        UnquiTubeService.updateChannel(self.channelCopy,
+            function(response){
+                window.location = window.location.origin;
+                console.log("Modificado con exito ", response);
+            },
+            function(error){
+                window.alert(error);
+            }
+        );
     }
 
     //---- ELIMINAR CANAL ------//
 
     self.deleteChannel = function() {
-        UnquiTubeService.deleteChannel(self.channel.id);
-        window.location = window.location.origin;
+        UnquiTubeService.deleteChannel(self.channel.id, 
+            function(response){
+                window.location = window.location.origin;
+                console.log("Eliminado con exito ", response); 
+            }, 
+            function(error){
+                window.alert(error);
+            }
+        );
+        
     }
 
 
