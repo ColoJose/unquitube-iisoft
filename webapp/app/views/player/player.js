@@ -1,13 +1,13 @@
 "use strict";
 
-const PATH = "/player";
+const PATH = "/player/:idChannel";
 
 app
 .config(function($routeProvider) {
     $routeProvider
         .when(PATH, {
             templateUrl : "./app/views/player/player.html",
-            controller: ["$scope", "$log", "UnquiTubeService", PlayerCtrl],
+            controller: ["$scope", "$log", "UnquiTubeService", "$routeParams", PlayerCtrl],
             controllerAs: "playerCtrl",
             aCustomTitle: "Player"
         }
@@ -17,17 +17,24 @@ app
 /**
  * Controller de la página player
  */
-function PlayerCtrl($scope, $log, UnquiTubeService) {
+function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
 
     const self = this;
 
     self.channel = null;
-    self.urlRegex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+    self.channelCopy = null;
 
-    UnquiTubeService.getPlaylist("debería ser el id de un canal", 
+    self.urlRegex = /(http|https):\/\/(www.youtube.com\/watch\?v=|youtu.be\/)(\w+$)/;
+    //Tipos de URLs validas:
+    //https://www.youtube.com/watch?v=axkOqrLtD
+    //https://youtu.be/axkOqrLtDXo
+
+
+    UnquiTubeService.getPlaylist($routeParams.idChannel,
         function(response) {
             updatePlaylist(response.data);
             self.playing = self.playlist[0];
+            self.playingurl = "https://www.youtube.com/embed/".concat(self.playing.url);
         },
         function(error) {
             window.alert("Sucedio un error al intentar obtener el canal");
@@ -38,7 +45,39 @@ function PlayerCtrl($scope, $log, UnquiTubeService) {
     function updatePlaylist(channel) {
         self.channel = channel;
         self.channel.playlist.sort( (a,b) => a.id - b.id);
-        self.playlist = self.channel.playlist; 
+        self.playlist = self.channel.playlist;
+    }
+
+    //----- MODIFICAR CANAL ------//
+    self.initChannelChange = function() {
+        self.channelCopy = {... self.channel};
+    }
+
+    self.updateChannel = function(){
+        UnquiTubeService.updateChannel(self.channelCopy,
+            function(response){
+                window.location = window.location.origin;
+                console.log("Modificado con exito ", response);
+            },
+            function(error){
+                window.alert(error);
+            }
+        );
+    }
+
+    //---- ELIMINAR CANAL ------//
+
+    self.deleteChannel = function() {
+        UnquiTubeService.deleteChannel(self.channel.id, 
+            function(response){
+                window.location = window.location.origin;
+                console.log("Eliminado con exito ", response); 
+            }, 
+            function(error){
+                window.alert(error);
+            }
+        );
+        
     }
 
 
@@ -47,7 +86,8 @@ function PlayerCtrl($scope, $log, UnquiTubeService) {
     self.sendingNewVideo = false;
     self.saveVideo = function () {
         self.sendingNewVideo = true;
-        UnquiTubeService.saveVideo(self.newVideo, 
+        self.newVideo.url = self.newVideo.url.split("/").pop().split("=").pop();
+        UnquiTubeService.saveVideo($routeParams.idChannel, self.newVideo,
             function success(response) {
                 $('#add-video-modal').modal("hide");
                 updatePlaylist(response.data);

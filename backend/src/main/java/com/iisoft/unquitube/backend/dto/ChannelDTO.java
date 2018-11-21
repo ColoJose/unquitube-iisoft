@@ -5,10 +5,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-/**
- * @author aee
- *
- */
 @Entity
 @Table(name="channel")
 public class ChannelDTO {
@@ -20,7 +16,8 @@ public class ChannelDTO {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@Column(name="playlist")
 	private Set<VideoDTO> playlist;
-	private HashSet<String> tags;
+	@ElementCollection
+	private Set<String> tags;
 	
 	
 	public ChannelDTO() {
@@ -46,10 +43,10 @@ public class ChannelDTO {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public HashSet<String> getTags() {
+	public Set<String> getTags() {
 		return tags;
 	}
-	public void setTags(HashSet<String> tags) {
+	public void setTags(Set<String> tags) {
 		this.tags = tags;
 	}
 
@@ -70,7 +67,7 @@ public class ChannelDTO {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof ChannelDTO))
 			return false;
 		ChannelDTO other = (ChannelDTO) obj;
 		if (id == null) {

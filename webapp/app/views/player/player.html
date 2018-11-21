@@ -3,7 +3,7 @@
     <h1>{{ playerCtrl.playing.title }}</h1>
     <section id="player-video-container" class="clearfix">
         <div id="player-video-frame">
-            <iframe width="720" height="400" ng-src="{{ playerCtrl.playing.url }}" ng-if="playerCtrl.playing"></iframe>
+            <iframe width="720" height="400" ng-src="{{playerCtrl.playingurl}}" ng-if="playerCtrl.playing"></iframe>
         </div>
         <div id="player-playlist">
             <h2>Lista de Reproducción</h2>
@@ -19,9 +19,46 @@
                     <i class="fas fa-plus"></i>
                     Agregar Video
                 </button>
+                
+                <button type="button" class="btn btn-danger" ng-click="playerCtrl.deleteChannel()">
+                    Eliminar Canal
+                </button>
+
+                <button type="button" ng-click="playerCtrl.initChannelChange()" class="btn btn-secondary" data-toggle="modal" data-target="#modify-channel-modal">
+                    Modificar Canal
+                </button>
             </div>
         </div>
     </section>
+
+    <!--Ventana Modal Modificar Canal-->
+    <div class="modal fade" id="modify-channel-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Modificar Canal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form name="changeChannel" ng-submit="playerCtrl.updateChannel()">
+                        <label>Nombre: </label>
+                        <input name="newName" type="text" ng-model="playerCtrl.channelCopy.name" required>
+                        <span class="error" ng-show="changeChannel.newName.$touched && changeChannel.newName.$invalid">El nombre es obligatorio<br></span>
+                        </br>
+                        <label>Tags: </label>
+                        <input type="text" ng-model="playerCtrl.channelCopy.tags">
+                        </br>
+                        <button type="submit" class="btn btn-secondary" data-toggle="modal" ng-show="changeChannel.$valid" data-target="#modify-channel-modal">
+                            Modificar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin Ventana Modal Modificar Canal-->
 
     <!-- Modal Agregar Video -->
     <div class="modal fade" id="add-video-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -43,15 +80,17 @@
                     </div>
                     <div class="form-group">
                         <label for="playerAddVideoForm_videoUrl">URL del video</label>
-                        <input type="text" class="form-control" name="newVideoUrl" id="playerAddVideoForm_videoUrl" ng-model="playerCtrl.newVideo.url" placeholder="Complete este campo con la dirección URL del video" ng-pattern="playerCtrl.urlRegex" required>
+                        <input type="text" class="form-control" name="newVideoUrl" id="playerAddVideoForm_videoUrl" ng-model="playerCtrl.newVideo.url" placeholder="https://www.youtube.com/watch?v=axkOqrLtDXo | https://youtu.be/axkOqrLtDXo" ng-pattern="playerCtrl.urlRegex" required>
                         <!-- <div class="invalid-feedback">
                             Debe cargar la URL correspondiente al nuevo video
                         </div> -->
                     </div>
+                    <!--
                     <div class="form-group">
                         <label for="playerAddVideoForm_videoThumbnailUrl">URL de imagen previa (thumbnail)</label>
                         <input type="text" class="form-control" name="newVideoThumbnailUrl" id="playerAddVideoForm_videoThumbnailUrl" ng-model="playerCtrl.newVideo.thumbnailUrl" placeholder="(Opcional) Ingrese una URL de una imagen miniatura del video" ng-pattern="playerCtrl.urlRegex">
                     </div>
+                    -->
                 </div>
                 <div class="modal-footer">
                     <i ng-if="playerCtrl.sendingNewVideo" class="fas fa-circle-notch fa-spin fa-2x"></i>
@@ -65,5 +104,4 @@
     <div class="alert alert-success hide" role="alert" id="player-video-successfully-saved-toast" style="display: none">
         Video guardado exitosamente!
     </div>
-
 </div>

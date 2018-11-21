@@ -15,3 +15,7 @@ body > header {
     display: table;
     clear: both;
 }
+
+.error {
+    color: red;
+}

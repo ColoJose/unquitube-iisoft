@@ -32,7 +32,6 @@ function UnquiTubeService($http,$rootScope) {
 
 
     self.getPlaylist = function (channelId, successCallback, errorCallback) {
-        channelId = 1; // TODO: HARDCODEADO para pruebas *************************************************************************
         $http.get($rootScope.service + "/channel/" + channelId).then(  
             function (response) {
                 successCallback && successCallback(response);
@@ -65,8 +64,8 @@ function UnquiTubeService($http,$rootScope) {
         ];*/
     };
 
-    self.saveVideo = function (videoToSave, successCallback, errorCallback) {
-        $http.post($rootScope.service + "/channel/1/video", videoToSave).then( 
+    self.saveVideo = function (idChannel, videoToSave, successCallback, errorCallback) {
+        $http.post($rootScope.service + "/channel/" + idChannel + "/video", videoToSave).then(
             function (response) {
                 successCallback && successCallback(response);
             },
@@ -75,6 +74,26 @@ function UnquiTubeService($http,$rootScope) {
             }
         );
     };
+
+    self.deleteChannel = function(idChannel, successCallback, errorCallback) {
+        $http.delete(`${$rootScope.service}/channel/${idChannel}`)
+            .then(response => {
+                successCallback && successCallback(response)
+            })
+            .catch(error => {
+                errorCallback && errorCallback(error)
+            })
+    }
+
+    self.updateChannel = function(channel, successCallback, errorCallback) {
+        $http.put(`${$rootScope.service}/channel/update`, channel)
+            .then(response => {
+                successCallback && successCallback(response);
+            })
+            .catch(error => {
+                errorCallback && errorCallback(error);
+            })
+    }
 
     self.getChannelListHARD = function() {
         // HARDCODEADO para prubeas
@@ -99,6 +118,23 @@ function UnquiTubeService($http,$rootScope) {
         );
     }
 
+    self.getChannelsListByTag = function(tags,successCallback, errorCallback) {
+        $http.get($rootScope.service + "/channel/search/"+tags).then(
+            function (response) {
+                successCallback && successCallback(response);
+            },
+            function (error) {
+                errorCallback && errorCallback(error);
+            }
+        );
+    }
+
+    self.getSearchChannelList = function (tags) {
+        return [
+            new Channel(tags, listaEj1)
+        ]
+    }
+
 }
 
 function Video(title, url, description) {
@@ -108,8 +144,8 @@ function Video(title, url, description) {
 }
 
 function Channel(title, videos) {
-    this.title = title;
-    this.videos = videos;
+    this.name = title;
+    this.playlist = videos;
 }
 
 // algo para sacar links desde la pagina de youtube
