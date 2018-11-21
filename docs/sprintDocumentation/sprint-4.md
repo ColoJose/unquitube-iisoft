@@ -22,4 +22,4 @@
 
 
 #### Grafico de velocidad
-![grafico de velocidad](unquitube-iisoft/docs/sprintDocumentation/graficoVelocidadSprint4.png)
+![grafico de velocidad](https://github.com/ColoJose/unquitube-iisoft/blob/master/docs/sprintDocumentation/graficoVelocidadSprint4.png?raw=true)
