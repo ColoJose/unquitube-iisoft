@@ -75,6 +75,26 @@ function UnquiTubeService($http,$rootScope) {
         );
     };
 
+    self.deleteChannel = function(idChannel, successCallback, errorCallback) {
+        $http.delete(`${$rootScope.service}/channel/${idChannel}`)
+            .then(response => {
+                successCallback && successCallback(response)
+            })
+            .catch(error => {
+                errorCallback && errorCallback(error)
+            })
+    }
+
+    self.updateChannel = function(channel, successCallback, errorCallback) {
+        $http.put(`${$rootScope.service}/channel/update`, channel)
+            .then(response => {
+                successCallback && successCallback(response);
+            })
+            .catch(error => {
+                errorCallback && errorCallback(error);
+            })
+    }
+
     self.getChannelListHARD = function() {
         // HARDCODEADO para prubeas
         return [
