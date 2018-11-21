@@ -47,6 +47,13 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
         self.playlist = self.channel.playlist;
     }
 
+    //---- ELIMINAR CANAL ------//
+
+    self.deleteChannel = function() {
+        UnquiTubeService.deleteChannel(self.channel.id);
+        window.location = window.location.origin;
+    }
+
 
     // const iframe = document.getElementById("player-video-frame").getElementsByTagName("iframe")[0];
     // iframe.src = self.playing.url;

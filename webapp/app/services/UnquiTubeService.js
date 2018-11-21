@@ -75,6 +75,10 @@ function UnquiTubeService($http,$rootScope) {
         );
     };
 
+    self.deleteChannel = function(idChannel) {
+        $http.delete(`${$rootScope.service}/channel/${idChannel}`)
+    }
+
     self.getChannelListHARD = function() {
         // HARDCODEADO para prubeas
         return [
