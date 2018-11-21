@@ -14,5 +14,4 @@ public interface ChannelRepository extends JpaRepository<ChannelDTO, Integer> {
 	public abstract List<ChannelDTO> findAll();
 
 	Set<ChannelDTO> findByTagsIn(Set<String> SearchTags);
-
 }

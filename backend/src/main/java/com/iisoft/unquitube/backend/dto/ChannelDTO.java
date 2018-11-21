@@ -46,7 +46,7 @@ public class ChannelDTO {
 	public Set<String> getTags() {
 		return tags;
 	}
-	public void setTags(HashSet<String> tags) {
+	public void setTags(Set<String> tags) {
 		this.tags = tags;
 	}
 
