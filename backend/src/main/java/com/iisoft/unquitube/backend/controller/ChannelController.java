@@ -17,6 +17,8 @@ import com.iisoft.unquitube.backend.dto.ChannelDTO;
 import com.iisoft.unquitube.backend.dto.VideoDTO;
 import com.iisoft.unquitube.backend.service.ChannelService;
 
+import javax.xml.ws.Response;
+
 @RestController
 @RequestMapping("channel/")
 @CrossOrigin(allowCredentials = "false")
@@ -99,6 +101,19 @@ public class ChannelController {
 		}
 		catch(Exception e) {
 			logger.error("saveChannel - error while trying to save a new channel", e);
+			return ResponseEntity.badRequest().build();
+		}
+	}
+
+	@RequestMapping(path="update", method=RequestMethod.PUT)
+	public ResponseEntity<?> updateChannel(@RequestBody ChannelDTO newChannel){
+		try{
+			logger.info("updateChannel - request to update channel. Received channel= " + newChannel);
+			ChannelDTO updateChannel = this.channelService.updateChannel(newChannel);
+			logger.info("updateChannel - channel updated");
+			return ResponseEntity.status(HttpStatus.OK).body(updateChannel);
+		} catch (Exception e) {
+			logger.error("updateChannel - error while trying to update channel");
 			return ResponseEntity.badRequest().build();
 		}
 	}
