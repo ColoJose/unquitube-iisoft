@@ -1,4 +1,7 @@
-fixes:
-  - "before/::after/"  # move path   e.g., "before/path" => "after/path"
-  - "::after/"         # move root   e.g., "path/" => "after/path/"
-  - "before/::"        # reduce root e.g., "before/path/" => "path/"
+comment:
+  layout: "header, diff,tree,files"
+  behavior: default
+  require_changes: false  # if true: only post the comment if coverage changes
+  branches: null
+  flags: null
+paths: null
