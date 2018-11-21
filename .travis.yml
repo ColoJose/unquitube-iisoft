@@ -7,7 +7,7 @@ notifications:
 language: java
 
 script:
-        - cd /backend/src/test/java/com/iisoft/unquitube/backend
+        - cd backend/
         - mvn test
         - "mvn cobertura:cobertura"
 
