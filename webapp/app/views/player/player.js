@@ -54,31 +54,34 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     }
 
     self.updateChannel = function(){
+        if (typeof self.channelCopy.tags === "string") {
+            self.channelCopy.tags = self.channelCopy.tags.replace(/ /g,"").split(",");
+        }
         UnquiTubeService.updateChannel(self.channelCopy,
-            function(response){
+            function(){
                 window.location = window.location.origin;
-                console.log("Modificado con exito ", response);
             },
             function(error){
-                window.alert(error);
+                window.alert("Ha habido un problema y no se a podido actualizar el canal");
+                console.log(error);
             }
         );
-    }
+    };
 
     //---- ELIMINAR CANAL ------//
 
     self.deleteChannel = function() {
         UnquiTubeService.deleteChannel(self.channel.id, 
-            function(response){
+            function(){
                 window.location = window.location.origin;
-                console.log("Eliminado con exito ", response); 
             }, 
             function(error){
-                window.alert(error);
+                window.alert("Ha habido un problema y no se a podido borrar el canal");
+                console.log(error);
             }
         );
         
-    }
+    };
 
 
     // const iframe = document.getElementById("player-video-frame").getElementsByTagName("iframe")[0];
