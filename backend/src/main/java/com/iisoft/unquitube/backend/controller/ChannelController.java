@@ -118,6 +118,36 @@ public class ChannelController {
 		}
 	}
 
+	@RequestMapping(path = "{channelId}/add", method = RequestMethod.PUT)
+	public ResponseEntity<?> addViewer(@PathVariable Integer channelId){
+		try{
+			logger.info("addViewer - request to add viewer to the channel. Received channelId = " + channelId);
+			ChannelDTO channelDTO = this.channelService.getChannel(channelId);
+			channelDTO.addViewer();
+			this.channelService.updateChannel(channelDTO);
+			logger.info("addViewer - channel viewer added");
+			return ResponseEntity.status(HttpStatus.OK).body(channelDTO);
+		} catch (Exception e){
+			logger.error("addViewer - error while trying to add viewer to the channel. Channel id = " + channelId);
+			return ResponseEntity.badRequest().build();
+		}
+	}
+
+	@RequestMapping(path = "{channelId}/del", method = RequestMethod.PUT)
+	public ResponseEntity<?> delViewer(@PathVariable Integer channelId){
+		try{
+			logger.info("delViewer - request to delete viewer to the channel. Received channelId = " + channelId);
+			ChannelDTO channelDTO = this.channelService.getChannel(channelId);
+			channelDTO.delViewer();
+			this.channelService.updateChannel(channelDTO);
+			logger.info("delViewer - channel viewer deleted");
+			return ResponseEntity.status(HttpStatus.OK).body(channelDTO);
+		} catch (Exception e){
+			logger.error("delViewer - error while trying to delete viewer to the channel. Channel id = " + channelId);
+			return ResponseEntity.badRequest().build();
+		}
+	}
+
 	@RequestMapping(path="{channelId}/video", method=RequestMethod.POST)
 	public ResponseEntity<?> saveVideo(@RequestBody VideoDTO newVideo, @PathVariable Integer channelId) {
 		try {
