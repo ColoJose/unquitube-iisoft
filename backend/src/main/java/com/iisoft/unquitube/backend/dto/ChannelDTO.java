@@ -18,11 +18,13 @@ public class ChannelDTO {
 	private Set<VideoDTO> playlist;
 	@ElementCollection
 	private Set<String> tags;
+	private Integer views;
 	
 	
 	public ChannelDTO() {
 		this.playlist = new HashSet<VideoDTO>();
 		this.tags = new HashSet<String>();
+		this.views = 0;
 	}
 	
 	public String getName() {
@@ -96,6 +98,14 @@ public class ChannelDTO {
 	@Override
 	public String toString() {
 		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + ", tags=" + tags + "]";
+	}
+
+	public void addViewer(){
+		this.views++;
+	}
+
+	public void delViewer(){
+		this.views--;
 	}
 	
 }
