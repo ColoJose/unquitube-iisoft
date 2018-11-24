@@ -16,7 +16,7 @@ public class ChannelDTO {
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@Column(name="playlist")
 	private Set<VideoDTO> playlist;
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> tags;
 	private Integer views;
 	
