@@ -23,8 +23,9 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
 
     self.channel = null;
     self.channelCopy = null;
+    // self.youtubeApiObjectLoaded = false;
 
-    self.urlRegex = /(http|https):\/\/(www.youtube.com\/watch\?v=|youtu.be\/)(\w+$)/;
+    self.urlRegex = /(http|https):\/\/(www.youtube.com\/watch\?v=|youtu.be\/)([\-_a-zA-Z0-9]+$)/;
     //Tipos de URLs validas:
     //https://www.youtube.com/watch?v=axkOqrLtD
     //https://youtu.be/axkOqrLtDXo
@@ -33,8 +34,8 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     UnquiTubeService.getPlaylist($routeParams.idChannel,
         function(response) {
             updatePlaylist(response.data);
-            self.playing = self.playlist[0];
-            self.playingurl = "https://www.youtube.com/embed/".concat(self.playing.url);
+            if (!state.initialized)
+                self.startPlaylist();
         },
         function(error) {
             window.alert("Sucedio un error al intentar obtener el canal");
@@ -45,7 +46,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     function updatePlaylist(channel) {
         self.channel = channel;
         self.channel.playlist.sort( (a,b) => a.id - b.id);
-        self.playlist = self.channel.playlist;
+        self.setPlaylist(self.channel.playlist);
     }
 
     //----- MODIFICAR CANAL ------//
@@ -80,9 +81,6 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
         
     }
 
-
-    // const iframe = document.getElementById("player-video-frame").getElementsByTagName("iframe")[0];
-    // iframe.src = self.playing.url;
     self.sendingNewVideo = false;
     self.saveVideo = function () {
         self.sendingNewVideo = true;
@@ -91,6 +89,8 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
             function success(response) {
                 $('#add-video-modal').modal("hide");
                 updatePlaylist(response.data);
+                if (state.loadedPlaylist && !state.initialized)
+                    self.startPlaylist();
 
                 $('#player-video-successfully-saved-toast').show()
                 setTimeout(function () {
@@ -120,5 +120,69 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
     $('#add-video-modal').on("hide.bs.modal", function (event) {
         self.newVideo = null;
     });
+
+    // *************************
+    // ** PLAYLIST MANAGEMENT **
+    // *************************
+
+    /** true solo cuando llega el playlist y el objeto self.player != null */
+    let state = {
+        loadedPlaylist: false,
+        initialized: false,
+    }
+    /** objeto de la api de Youtube. Solo debería inicializarse una sola vez */
+    let player = null;
+    /** index del video en la playlist que se esta reproduciendo actualmente */
+    let currentVideoIndex = 0;
+    /** lista de videos de este canal. IMPORTANTE: solo debe actualizarce esta lista mediante self.playlist(newPlaylist) */
+    self.playlist = [];
+    /** video reproduciendose actualmente */
+    self.currentVideo = null;
+        
+    self.setPlaylist = function (newPlaylist) {
+        // esto solo debe ejecutarse la primera ves que encuentra una lista no vacia
+        if (self.playlist.length == 0 && !state.loadedPlaylist)
+            state.loadedPlaylist = true;
+
+        self.playlist = newPlaylist;
+    };
+
+    self.startPlaylist = function () {
+        if (!state.loadedPlaylist || self.playlist.length == 0) {
+            console.log("La lista de reproduccion no esta lista para iniciarse"); 
+            return;
+        }
+        
+        self.player = new YT.Player("embeded-youtube-iframe", {
+            videoId: self.playlist[0].url,
+            events: {
+                onReady: (event) => {
+                    $scope.$apply(()=>{
+                        nextVideo();
+                        state.initialized = true;
+                    });
+                    
+                },
+                onStateChange: (event) => {
+                    $scope.$apply(()=>{
+                        switch (event.data) {
+                            case (YT.PlayerState.ENDED):
+                                nextVideo();
+                                break;
+                        }
+                    });
+                }
+            }
+        });
+
+        function nextVideo() {
+            self.currentVideo = self.playlist[ currentVideoIndex % self.playlist.length ];
+            currentVideoIndex++;
+            console.log("PLAYER -> loading video with id ", self.currentVideo);
+            self.player.loadVideoById({ videoId: self.currentVideo.url });
+        }
+
+    };
+
 
 }
