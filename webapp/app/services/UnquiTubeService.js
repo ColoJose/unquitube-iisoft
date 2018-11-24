@@ -95,6 +95,26 @@ function UnquiTubeService($http,$rootScope) {
             })
     }
 
+    self.addViewer = function(channelId, successCallback, errorCallback){
+        $http.put(`${$rootScope.service}/channel/${channelId}/add`)
+            .then(response => {
+                successCallback && successCallback(response);
+            })
+            .catch(error => {
+                errorCallback && errorCallback(error);
+            })
+    }
+
+    self.delViewer = function(channelId, successCallback, errorCallback){
+        $http.put(`${$rootScope.service}/channel/${channelId}/del`)
+            .then(response => {
+                successCallback && successCallback(response);
+            })
+            .catch(error => {
+                errorCallback && errorCallback(error);
+            })
+    }
+
     self.getChannelListHARD = function() {
         // HARDCODEADO para prubeas
         return [

@@ -17,6 +17,7 @@ app
 /**
  * Controller de la página player
  */
+
 function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
 
     const self = this;
@@ -47,6 +48,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
         self.channel.playlist.sort( (a,b) => a.id - b.id);
         self.playlist = self.channel.playlist;
     }
+    
 
     //----- MODIFICAR CANAL ------//
     self.initChannelChange = function() {
