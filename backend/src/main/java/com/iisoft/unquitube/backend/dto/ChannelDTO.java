@@ -51,6 +51,21 @@ public class ChannelDTO {
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
 	}
+	public Integer getViews() {
+		return views;
+	}
+	public void setViews(Integer views) {
+		this.views = views;
+	}
+
+	
+	public void addViewer(){
+		this.views++;
+	}
+
+	public void delViewer(){
+		this.views--;
+	}
 
 	@Override
 	public int hashCode() {
@@ -60,6 +75,7 @@ public class ChannelDTO {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((playlist == null) ? 0 : playlist.hashCode());
 		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
+		result = prime * result + ((views == null) ? 0 : views.hashCode());
 		return result;
 	}
 
@@ -92,20 +108,18 @@ public class ChannelDTO {
 				return false;
 		} else if (!tags.equals(other.tags))
 			return false;
+		if (views == null) {
+			if (other.views != null)
+				return false;
+		} else if (!views.equals(other.views))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + ", tags=" + tags + "]";
-	}
-
-	public void addViewer(){
-		this.views++;
-	}
-
-	public void delViewer(){
-		this.views--;
+		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + ", tags=" + tags + ", views="
+				+ views + "]";
 	}
 	
 }

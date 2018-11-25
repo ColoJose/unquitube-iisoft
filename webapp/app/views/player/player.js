@@ -17,10 +17,29 @@ app
 /**
  * Controller de la página player
  */
-
 function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
 
     const self = this;
+    
+    UnquiTubeService.addViewer($routeParams.idChannel, 
+        function(response) {
+            self.viewersCount = response.data.views;
+            $scope.$root.tasksOnClose.removeViewerOnTabClosed = function () {
+                UnquiTubeService.delViewer(self.channel.id, 
+                    function (response) {},
+                    function (error) {}
+                );
+            };
+        }, 
+        function(error) {
+            alert("No se pudo acceder a la cantidad de usuarios")
+        }
+    );
+
+    $scope.$on("$destroy", function(event) {
+        $scope.$apply( () => UnquiTubeService.delViewer(self.channel.id, null, null) );
+        delete $scope.$root.tasksOnClose.removeViewerOnTabClosed;
+    });
 
     self.channel = null;
     self.channelCopy = null;
@@ -157,9 +176,13 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
             console.log("La lista de reproduccion no esta lista para iniciarse"); 
             return;
         }
-        
+
         self.player = new YT.Player("embeded-youtube-iframe", {
             videoId: self.playlist[0].url,
+            playerVars: {
+                rel: 0,
+                modestbranding: 1
+            },
             events: {
                 onReady: (event) => {
                     $scope.$apply(()=>{

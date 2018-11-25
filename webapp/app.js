@@ -97,6 +97,15 @@ function UnquiTubeCtrl($http, $scope, $log, $route) {
         setPageTitle(mainTitle)
     });
 
+    $scope.$root.tasksOnClose = {};
+
+    window.onbeforeunload = function(e) {
+        for (let key in $scope.$root.tasksOnClose) {
+            if (typeof $scope.$root.tasksOnClose[key] === "function")
+                $scope.$root.tasksOnClose[key]();
+        }
+    };
+
 }
 
 
