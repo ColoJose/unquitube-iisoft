@@ -7,7 +7,7 @@ import org.junit.Test;
 import nl.jqno.equalsverifier.EqualsVerifier;
 
 public class ChannelDTOTest {
-
+	
 	@Test
 	public void validateEqualsAndHashcodeMethodFunctioning() {
 		EqualsVerifier.forClass(ChannelDTO.class).verify();;
