@@ -117,5 +117,22 @@ public class ChannelServiceTest {
 
 		assertEquals(requestedChannels, recoveredChannel);
 	}
+	
+	@Test
+	public void GIVEN_a_channel_to_update_WHEN_updating_it_THEN_should_return_updated_channel() {
+		ChannelDTO newChannel = new ChannelDTO();
+		newChannel.setName("channel");
+		
+		this.channelService.saveChannel(newChannel);
+		
+		newChannel.setName("new name");
+		
+		this.channelService.updateChannel(newChannel);
+		when(this.channelRepository.findById(10)).thenReturn(Optional.of(newChannel));
+	
+		String updatedChannelName = "new name";
+		ChannelDTO channel = this.channelService.getChannel(10);
+		assertEquals(channel.getName(), updatedChannelName);
+	}
 
 }
