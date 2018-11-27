@@ -1,0 +1,665 @@
+[33mcommit b6af63233da300023b3b562024dcb8999c2c07f8[m[33m ([m[1;36mHEAD -> [m[1;32mpruebaTravisCodecov[m[33m, [m[1;31morigin/pruebaTravisCodecov[m[33m)[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 20:26:55 2018 -0300
+
+    change to test travis with codecov
+
+[33mcommit 60c86a65efb7758e74d3c2b43d1cfcb0da81021b[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 19:58:31 2018 -0300
+
+    Update pom.xml
+
+[33mcommit 2c55c124f326efd64874e7a701a73a666aba8c39[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 19:50:41 2018 -0300
+
+    Update pom.xml
+
+[33mcommit 65b234c83e5d0164af0b881327f3b9b0e189d384[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 17:10:33 2018 -0300
+
+    Update pom.xml
+
+[33mcommit 41c39d7d156633fa48e84764a780cb3d2bddee14[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 16:34:15 2018 -0300
+
+    Rename codecov.yml to .codecov.yml
+
+[33mcommit add617aa6cbc324ff16d37c01a2825385133cb54[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 16:33:20 2018 -0300
+
+    Create codecov.yml
+
+[33mcommit db4aebc143d7b43b2a323c4265f8c7a82799b73f[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 16:05:10 2018 -0300
+
+    Update ChannelRepositoryTest.java
+
+[33mcommit 1b1ff5baaafa952bbeeddf0c10b084306f324e51[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 15:52:10 2018 -0300
+
+    Update ChannelRepositoryTest.java
+
+[33mcommit 2f8348eea79221d42a782b4379710a89ffb1cbb5[m
+Merge: 011d757 b010c69
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 15:43:34 2018 -0300
+
+    Merge branch 'master' of https://github.com/ColoJose/unquitube-iisoft
+
+[33mcommit 011d7575247431bd210bcca39995e5d497963186[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 15:42:40 2018 -0300
+
+    ignore a test to run travis
+
+[33mcommit b010c69e1ef2c84b0ef11d26eb2f1e3b830b17d2[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 15:24:12 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit c2a6a4cb19ed668544cffd743048feafe3029dd3[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 15:23:53 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit ba34991137f87a340cf188d7c57c2b0f8ca85e44[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 14:34:16 2018 -0300
+
+    Update pom.xml
+
+[33mcommit 92bbfdc30215e51e557d60ff5e301fce264ba752[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 14:27:23 2018 -0300
+
+    Update build.xml
+
+[33mcommit eddd67ccac56e22d187f4ed3e9f01d937524e379[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 14:26:00 2018 -0300
+
+    Update build.xml
+
+[33mcommit 13465cbc7ff6e7e065d7852bcf79d218957b66c8[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 14:20:48 2018 -0300
+
+    Delete build.xml
+
+[33mcommit 540409db5c8ed1412c237cae09263bca3140f85a[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 19 14:18:22 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 13573d955285e787dd79ff8c227f24a573abeb7c[m
+Merge: 4754e4e e91c531
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Mon Nov 19 12:07:33 2018 -0300
+
+    Merge pull request #38 from urielintemperie/UnionHomeViewYSeachView
+    
+    Unión entre HomeView y SearchView
+
+[33mcommit e91c5316230f6aaca2f6c59dcaebcc84b49664c8[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Sun Nov 18 21:26:11 2018 -0300
+
+    Union entre HomeView y SearchView
+    
+    Se agrego la logica de SearchCtrl a HomeCtrl y este ultimo responde tanto a la direccion "/" como a "/search/:tags/"
+
+[33mcommit 4754e4e3c4c0b2e945ddec00f7325cd708056f93[m
+Merge: 11eeae8 2450b9f
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Sun Nov 18 16:38:40 2018 -0300
+
+    Merge pull request #36 from ColoJose/cobertura_60%_o_superior
+    
+    Cobertura 60% o superior
+
+[33mcommit 2450b9f5f084e7c2c8b16b3e2409d3ebea22b254[m[33m ([m[1;31morigin/cobertura_60%_o_superior[m[33m)[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sun Nov 18 16:24:52 2018 -0300
+
+    configuracion de travis para levantar servicio de base de datos mysql
+
+[33mcommit b787ede92557ee57d6e4bed96eb2f8cc5e14f274[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sun Nov 18 16:11:29 2018 -0300
+
+    Covertura al 99%
+    Se borró muchas clases que no se usaban y se configuró un test de base de datos
+    Se agregó nueva dependencia en pom.xml "EqualsVerifier"
+
+[33mcommit 11eeae8fe2c78efbac7cad45cacc861eb9913da9[m
+Merge: 456a6d9 4a03824
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Thu Nov 15 00:49:56 2018 -0300
+
+    Merge remote-tracking branch 'upstream/master'
+
+[33mcommit 456a6d967823489af98369ddfc4641178e2ae8ca[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Thu Nov 15 00:40:09 2018 -0300
+
+    Logica barra de busqueda de canales movido a UnquiTubeCtrl
+
+[33mcommit 4a03824dcbb52dc4a6a82e3a2accfd87443806a5[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:43:33 2018 -0300
+
+    Add files via upload
+
+[33mcommit 5e552db125f6e3bdc83f5a8de252e63388a15475[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:42:27 2018 -0300
+
+    Delete graficoVelocidadSprint3.png
+
+[33mcommit 466807ffcceef495f672958c866d3edf56091699[m
+Author: Julian Uriel Espinoza <urielintemperie@hotmail.com>
+Date:   Wed Nov 14 19:39:41 2018 -0300
+
+    Sprint-3
+
+[33mcommit 04f767ef31c51bc77f7a345d209dd16566088e11[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:38:27 2018 -0300
+
+    Add files via upload
+
+[33mcommit 22c70bcbef2c99e1daec62c540d842c4adcc97f7[m
+Merge: 209ab96 76975f4
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:29:53 2018 -0300
+
+    Merge pull request #35 from urielintemperie/searchChannelTag
+    
+    Search channel tag
+
+[33mcommit 209ab96485cfa40ff0f0b91461d405108a54562a[m
+Merge: 05e77a7 6c0c697
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:21:17 2018 -0300
+
+    Merge pull request #34 from ColoJose/pruebaTravis
+    
+    Prueba travis
+
+[33mcommit 6c0c697b7cb28a22200001832d905bad347e3163[m[33m ([m[1;31morigin/pruebaTravis[m[33m)[m
+Merge: 48156dc 05e77a7
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:19:11 2018 -0300
+
+    Merge branch 'master' into pruebaTravis
+
+[33mcommit 48156dc70868946980bc7c0134c0f53cb3bd4973[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 14 19:00:04 2018 -0300
+
+    a change to test
+
+[33mcommit 76975f422e079275d689cd5df3eb1bf3482ea8cd[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Nov 14 18:59:24 2018 -0300
+
+    Testeo de ChannelService y pequeña modificacion del buscador
+
+[33mcommit b6aae8515943259aae3924c239150c54b52ad30b[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Nov 14 16:41:12 2018 -0300
+
+    getChannelsByTag pasa a ser GET
+
+[33mcommit 04ae8c68a88bdda43ac0ac992e81920dfbdf5fb2[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Nov 14 16:05:00 2018 -0300
+
+    Vista busqueda tags
+
+[33mcommit ac1fc5f33e43751844d8ab2ae358f844ff06f7e6[m
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Tue Nov 13 23:12:28 2018 -0300
+
+    Agregado el filtro de canales al rest
+
+[33mcommit 05e77a7d12ca4f99265572b066889b2a9445a409[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 13 14:27:16 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 19bac0c6224216e4c77dad952103b6efe94fae8f[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 13 14:02:40 2018 -0300
+
+    change to test travis
+
+[33mcommit 1c3843f87bfc596663fec2274844e73882a449bc[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 13 13:44:21 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 45e296b4c3c212a5b548bdad0e3a3c7aab00f6e2[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 13 00:46:46 2018 -0300
+
+    algo
+
+[33mcommit b5166004ca5a3fae72f7b154e9b9560c43f75192[m
+Merge: 7d97857 7422438
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 13 00:44:27 2018 -0300
+
+    Merge branch 'pruebaTravis' of https://github.com/ColoJose/unquitube-iisoft into pruebaTravis
+
+[33mcommit 7d9785740f21effbd91f0f24e3d3689cb1ad21f3[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 13 00:44:01 2018 -0300
+
+    commit de prueba
+
+[33mcommit cf396e3ced5453889ac7f5f10dd3c4805e43abba[m
+Merge: 8efd783 7422438
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 20:39:01 2018 -0300
+
+    Merge pull request #25 from ColoJose/pruebaTravis
+    
+    Prueba travis
+
+[33mcommit 7422438217758a7339373c610ee2f6ef23803ca9[m
+Merge: 9997a06 8efd783
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 20:38:52 2018 -0300
+
+    Merge branch 'master' into pruebaTravis
+
+[33mcommit 8efd783616339aa89c7ef752cdd99a26d7f7f21f[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 20:38:06 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 9997a06b9573424b5d2ba083e0744ffef74bcfa5[m
+Merge: 3957137 587a48b
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:41:53 2018 -0300
+
+    Merge branch 'master' into pruebaTravis
+
+[33mcommit 587a48b21837e6fa85857a3000ae40cee6a15d5b[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:40:32 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 3957137a3ccea754d3f4e64922f8715cb1cee2fc[m
+Merge: ffeecb4 8bb46d7
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:38:50 2018 -0300
+
+    Merge branch 'master' into pruebaTravis
+
+[33mcommit ffeecb41b87ceaa10fb55328884c40f3a449df23[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:36:45 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 8b606c2eebd3943d59f68baff49ad5cfc5357b2c[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:36:33 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 91acf88e49ef7a2b32185372e02f4df01aaad064[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:35:57 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit c296e90eb0d8c5d34dd27d4b850362ed0fc4821b[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:28:42 2018 -0300
+
+    update travis
+
+[33mcommit 8bb46d7202bb781eb443703fed0dfbcbc8fc21c8[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Mon Nov 12 19:09:42 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit d92f9a3d9264917527ffc691b0fcd10d0bb823bd[m
+Merge: f732f9a 5c4466a
+Author: Julian Uriel Espinoza <urielintemperie@hotmail.com>
+Date:   Wed Nov 7 19:56:45 2018 -0300
+
+    Merge pull request #19 from urielintemperie/homeView
+    
+    Home view
+
+[33mcommit f732f9ab0b1d671b54e9c2aa5ff79ba4a3b20354[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 19:46:33 2018 -0300
+
+    Update sprint-2.md
+
+[33mcommit 48da1286c497b4ca03a12883528220c85821fd52[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 19:41:22 2018 -0300
+
+    Update sprint-2.md
+
+[33mcommit 0f8c0aa266aa15be19ab854f01ed831ac0d80e6b[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 19:38:39 2018 -0300
+
+    Create sprint-3.md
+
+[33mcommit 5c4466ac0945f6254dde1d1598d106ebc5d7d026[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Nov 7 19:36:24 2018 -0300
+
+    Home View conectado con backend
+
+[33mcommit 29bbde3257f5a17fabd9faf99432185da6db5aad[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 19:35:53 2018 -0300
+
+    update al grafico de velocidad
+
+[33mcommit 93287cd12652b366f8d5bd965454a9b2802c71c4[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 19:17:24 2018 -0300
+
+    add configuration for travis
+
+[33mcommit 3f2148624a7318960d322aa47df9dc3a6952717d[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Nov 7 17:59:33 2018 -0300
+
+    Home con logica de Angular
+
+[33mcommit 68bea64078febb2f56aca324387c6ce78a9d72f4[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Oct 31 18:23:05 2018 -0300
+
+    Home canales mockup
+
+[33mcommit e142159f72d8ce860b3090be4011a8b98d800b51[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Oct 24 20:25:01 2018 -0300
+
+    template home view
+
+[33mcommit 2c7adf3f36fcc533f91e34c0c7f4dc676ca97f92[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 17:14:33 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 3b19b741c2d36b7dc0a6e303843a5aa13c87fb85[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 17:11:40 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit d567a86cf3c4f72cd7cfb39906184d9fb1c87cff[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 17:10:40 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 057419b4164c5224ca3b561d28efb1be4bd92ac2[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 17:01:25 2018 -0300
+
+    Update .travis.yml
+
+[33mcommit 0a1d601dbb410aa0de95cf8d2a01ee88e73fa9c6[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 16:29:10 2018 -0300
+
+    agrego .travis.yml con configuracion
+
+[33mcommit 578a23bf647995a8c7685eb5183c695f00c823ed[m
+Merge: 50778fd e3b1395
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 13:14:16 2018 -0300
+
+    Merge branch 'master' of https://github.com/ColoJose/unquitube-iisoft
+
+[33mcommit 50778fd3266adc58a102fc202f372262268a16a2[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Wed Nov 7 13:13:43 2018 -0300
+
+    agregó gráfico de velocidad
+
+[33mcommit 44516be6e5c0dcf5c341567e32f165b22d7b7773[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 6 21:12:06 2018 -0300
+
+    agrego archivo build
+
+[33mcommit e3b1395b3a5b07d4fed5d433dde6d286e522c3fc[m
+Merge: 056ed3b 441a16a
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 6 21:04:30 2018 -0300
+
+    Merge pull request #4 from urielintemperie/master
+    
+    Agrego travis y Retrospectivas
+
+[33mcommit 0474ee0b3fb48d2c627dbcbddff885bc1b574a26[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Nov 6 20:58:51 2018 -0300
+
+    para prueba
+
+[33mcommit 056ed3b06d76a6e1776238be6e88098529e80783[m
+Merge: 7101725 4e8251e
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Tue Nov 6 19:24:01 2018 -0300
+
+    Merge pull request #5 from ColoJose/altaYBajaCanalesMasTesting
+    
+    Actualización API Rest canales + testing de su capa de controller y servicio
+
+[33mcommit 4e8251e7484a5e51d8699fe48ae72a7ac0d26bc0[m[33m ([m[1;31morigin/altaYBajaCanalesMasTesting[m[33m)[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sat Nov 3 19:20:52 2018 -0300
+
+    Se implementó en API Rest de canales alta y baja de canales.
+    Se agregó unit test de controller de canales y su respectivo servicio.
+    Se agrega dependencia de mockito.
+    Se cambio archivo de properties para apuntar a base de datos local.
+
+[33mcommit 441a16a1f2caa25f0ff0de8d22b1631a1c354b6a[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Oct 31 19:19:11 2018 -0300
+
+    Retrospectivas Sprint 0 y 1
+
+[33mcommit 598ea388c99f3787a104b3fa440999863aa52464[m
+Author: Uriel Espinoza <urielintemperie@gmail.com>
+Date:   Wed Oct 31 18:40:26 2018 -0300
+
+    travis
+
+[33mcommit 71017251aee188b21b6487075caf43b87697e691[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Oct 31 13:39:21 2018 -0300
+
+    Update README.md
+
+[33mcommit f65e9397a9d336669053a2c6d7a3471d94b0a7f9[m
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Wed Oct 31 13:38:57 2018 -0300
+
+    Update README.md
+
+[33mcommit a0670883bcc505b52f9f66eb91787b645b87692e[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Wed Oct 31 00:50:25 2018 -0300
+
+    Correciones de validaciones y estilos en pantalla de video
+
+[33mcommit 80f99e9383f2266c84b0b1eda7c768773222cd39[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Oct 30 19:52:57 2018 -0300
+
+    agrego archivos par seguimiento de sprint en formato .md junto con un template para los próximos
+
+[33mcommit 4bda2870ccbe7f97182f42757061ebeee39053c1[m
+Merge: c283729 8dbc645
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Tue Oct 30 17:43:59 2018 -0300
+
+    Merge pull request #2 from ColoJose/getListChannelsImplement
+    
+    agregado metodo en rest de todos los canales
+
+[33mcommit 8dbc6454b7d6ec93fc98f2bf70e8f875c0f0e3bc[m[33m ([m[1;31morigin/getListChannelsImplement[m[33m)[m
+Author: colo <msanchez.jose.94@gmail.com>
+Date:   Tue Oct 30 17:41:03 2018 -0300
+
+    agregado metodo en rest de todos los canales
+
+[33mcommit c2837295a7b3b0f7056625a417607895b6477bb0[m
+Merge: a304639 a4fda63
+Author: ColoJose <msanchez.jose.94@gmail.com>
+Date:   Tue Oct 30 13:58:55 2018 -0300
+
+    Merge pull request #1 from ColoJose/agregarVideo_feature
+    
+    Agregar video feature
+
+[33mcommit a4fda63ef82646db906ac37e84664244ffa590f0[m[33m ([m[1;31morigin/agregarVideo_feature[m[33m)[m
+Author: aee <espinola.abel.e@gmail.com>
+Date:   Tue Oct 30 03:22:59 2018 -0300
+
+    Implementado agregado de video en frontend y servicio. Falta corregir notificaciones y validaciones
+
+[33mcommit cd6230d2ea76a961dbce9b641a6f9d35e3930a6e[m
+Author: aee <espinola.abel.e@gmail.com>
+Date:   Tue Oct 30 00:30:37 2018 -0300
+
+    vista agregar video falta arreglar mensaje de confirmación de guardado
+
+[33mcommit 38bba560550049ce098fc447e531791f49ef126f[m
+Merge: ba614b1 c6bb3ac
+Author: aee <espinola.abel.e@gmail.com>
+Date:   Tue Oct 30 00:15:43 2018 -0300
+
+    Merge branch 'agregarVideo_feature' of https://github.com/ColoJose/unquitube-iisoft
+
+[33mcommit ba614b156119064b00ea7f1c8101f9ba807e8f58[m
+Merge: a80dcc0 a304639
+Author: aee <espinola.abel.e@gmail.com>
+Date:   Tue Oct 30 00:11:15 2018 -0300
+
+    Merge branch 'master' of https://github.com/ColoJose/unquitube-iisoft
+
+[33mcommit c6bb3acb7f912a7efb32a429a00fc89f1a98d1e9[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Mon Oct 29 23:59:09 2018 -0300
+
+    actualizando backend para guardar videos
+
+[33mcommit a304639125b4abf0a4dd3ba17b52f8d62db1f9b2[m
+Author: khalilfa <facundokhalil@gmail.com>
+Date:   Sun Oct 28 17:55:22 2018 -0300
+
+    Video ya se encuentra reflejado en el modelo, se persiste en bd y tiene su REST
+
+[33mcommit a80dcc08bd391d9cce49463f39fc286636065ab2[m
+Author: aee <espinola.abel.e@gmail.com>
+Date:   Sun Oct 28 04:13:23 2018 -0300
+
+    Agregado botón a vista html
+
+[33mcommit 3847f0bddee02e7140807ada72533ed796d799f1[m
+Author: aee <espinola.abel.e@gmail.com>
+Date:   Sun Oct 28 03:01:37 2018 -0300
+
+    Agregado mockup de pantalla de reproducción con botón de agregar video
+
+[33mcommit 0a29934eea51bad527144d95a999ed13ad945df2[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sat Oct 27 20:36:41 2018 -0300
+
+    actualización mocks.readme.txt
+
+[33mcommit a9434aeb7a5230a73dc1df211f24fc4786e1d10f[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sat Oct 27 20:33:40 2018 -0300
+
+    mockup base de página de reproducción de video
+
+[33mcommit d2ff71922caf9b9087720385b327c9816d8cfb48[m
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Wed Oct 24 16:01:05 2018 -0300
+
+    Update README.md
+
+[33mcommit 6563a205acd1021291c0c2d5e242b26cc699838e[m
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Wed Oct 24 16:00:37 2018 -0300
+
+    Update README.md
+
+[33mcommit fbf36f716ec3271b163c576d5db36bac8635339b[m
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Wed Oct 24 16:00:06 2018 -0300
+
+    Create README.md
+
+[33mcommit c4761e50c393148ebdea47ced6544a84a508f433[m
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Wed Oct 24 15:46:42 2018 -0300
+
+    Todo el backend configurado con spring boot + ejemplo de rest + mysql remoto
+
+[33mcommit 293cf9a904a410f3b9c47753b324d81b7216d2ca[m
+Author: Facundo Videla <facundokhalil@gmail.com>
+Date:   Mon Oct 22 03:37:08 2018 -0300
+
+    Servidor backend configurado
+
+[33mcommit 72cae0cfab75a8b92ea2a02065f8499a7bb78a4a[m
+Merge: e3fb294 ad840e9
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sun Oct 21 22:39:21 2018 -0300
+
+    Merge branch 'master' of https://github.com/ColoJose/unquitube-iisoft
+
+[33mcommit e3fb2940fd705f91222b00ef263613629b4ec1e5[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sun Oct 21 22:38:39 2018 -0300
+
+    pagina de reproduccion de video agregada
+
+[33mcommit ad840e91cc05154bfbed396118d59e165c55bda6[m
+Author: Facundo Khalil <facundokhalil@gmail.com>
+Date:   Sun Oct 21 21:46:10 2018 -0300
+
+    Creada la base del backend
+
+[33mcommit 5421356a0bf2694740be778596432fa92c2c1206[m
+Author: EspinolaAbel <espinola.abel.e@gmail.com>
+Date:   Sat Oct 20 20:36:34 2018 -0300
+
+    proyecto base webapp

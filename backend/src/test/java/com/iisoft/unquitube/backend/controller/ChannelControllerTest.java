@@ -287,6 +287,10 @@ public class ChannelControllerTest {
 		this.mockMvc.perform(delete("/channel/10")).andDo(print()).andExpect(status().isBadRequest()).andReturn();
 	}
 	
+	// *******************
+	// UPDATE A CHANNEL
+	// *******************
+	
 	@Test
 	public void GIVEN_a_request_to_update_a_channel_that_not_exists_WHEN_updating_it_THEN_response_with_status_ok()
 			throws Exception {
@@ -294,8 +298,8 @@ public class ChannelControllerTest {
 		ChannelDTO channelDTO = new ChannelDTO();
 		when(this.service.saveChannel(channelDTO)).thenReturn(channelDTO);
 		when(this.service.updateChannel(channelDTO)).thenReturn(channelDTO);
-
-		this.mockMvc.perform(put("/update/")).andDo(print()).andExpect(status().isOk()).andReturn();
+		
+		this.mockMvc.perform(put("/channel/update")).andDo(print()).andExpect(status().isOk()).andReturn();
 	}
 
 
