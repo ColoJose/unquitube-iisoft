@@ -113,6 +113,7 @@ public class ChannelDTO {
 				return false;
 		} else if (!views.equals(other.views))
 			return false;
+    
 		return true;
 	}
 
