@@ -51,6 +51,21 @@ public class ChannelDTO {
 	public void setTags(Set<String> tags) {
 		this.tags = tags;
 	}
+	public Integer getViews() {
+		return views;
+	}
+	public void setViews(Integer views) {
+		this.views = views;
+	}
+
+	
+	public void addViewer(){
+		this.views++;
+	}
+
+	public void delViewer(){
+		this.views--;
+	}
 
 	@Override
 	public int hashCode() {
@@ -98,21 +113,14 @@ public class ChannelDTO {
 				return false;
 		} else if (!views.equals(other.views))
 			return false;
-
+    
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + ", tags=" + tags + "]";
-	}
-
-	public void addViewer(){
-		this.views++;
-	}
-
-	public void delViewer(){
-		this.views--;
+		return "ChannelDTO [id=" + id + ", name=" + name + ", playlist=" + playlist + ", tags=" + tags + ", views="
+				+ views + "]";
 	}
 	
 }

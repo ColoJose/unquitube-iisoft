@@ -128,7 +128,7 @@ public class ChannelController {
 			logger.info("addViewer - channel viewer added");
 			return ResponseEntity.status(HttpStatus.OK).body(channelDTO);
 		} catch (Exception e){
-			logger.error("addViewer - error while trying to add viewer to the channel. Channel id = " + channelId);
+			logger.error("addViewer - error while trying to add viewer to the channel. Channel id = " + channelId,e);
 			return ResponseEntity.badRequest().build();
 		}
 	}
@@ -143,7 +143,7 @@ public class ChannelController {
 			logger.info("delViewer - channel viewer deleted");
 			return ResponseEntity.status(HttpStatus.OK).body(channelDTO);
 		} catch (Exception e){
-			logger.error("delViewer - error while trying to delete viewer to the channel. Channel id = " + channelId);
+			logger.error("delViewer - error while trying to delete viewer to the channel. Channel id = " + channelId, e);
 			return ResponseEntity.badRequest().build();
 		}
 	}
