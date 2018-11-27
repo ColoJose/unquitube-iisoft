@@ -10,7 +10,7 @@ public class VideoDTOTest {
 
 	@Test
 	public void validateEqualsAndHashcodeMethodFunctioning() {
-		EqualsVerifier.forClass(VideoDTO.class).verify();;
+		EqualsVerifier.forClass(VideoDTO.class).verify();
 	}
 
 }

@@ -60,6 +60,7 @@ public class ChannelDTO {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((playlist == null) ? 0 : playlist.hashCode());
 		result = prime * result + ((tags == null) ? 0 : tags.hashCode());
+		result = prime * result + ((views == null) ? 0 : views.hashCode());
 		return result;
 	}
 
@@ -92,6 +93,12 @@ public class ChannelDTO {
 				return false;
 		} else if (!tags.equals(other.tags))
 			return false;
+		if (views == null) {
+			if (other.views != null)
+				return false;
+		} else if (!views.equals(other.views))
+			return false;
+
 		return true;
 	}
 
