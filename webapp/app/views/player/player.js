@@ -7,7 +7,7 @@ app
     $routeProvider
         .when(PATH, {
             templateUrl : "./app/views/player/player.html",
-            controller: ["$scope", "$log", "UnquiTubeService", "$routeParams", "$interval", PlayerCtrl],
+            controller: ["$scope", "$log", "UnquiTubeService", "$routeParams", "$interval", "$window", PlayerCtrl],
             controllerAs: "playerCtrl",
             aCustomTitle: "Player"
         }
@@ -17,7 +17,7 @@ app
 /**
  * Controller de la página player
  */
-function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
+function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval, $window) {
 
     const self = this;
 
@@ -96,7 +96,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
                 self.startPlaylist();
         },
         function(error) {
-            window.alert("Sucedio un error al intentar obtener el canal");
+            $window.alert("Sucedio un error al intentar obtener el canal");
             console.error(error);
         }
     );
@@ -119,10 +119,10 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
         }
         UnquiTubeService.updateChannel(self.channelCopy,
             function(){
-                window.location = window.location.origin;
+                $window.location = $window.location.origin;
             },
             function(error){
-                window.alert("Ha habido un problema y no se a podido actualizar el canal");
+                $window.alert("Ha habido un problema y no se a podido actualizar el canal");
                 console.log(error);
             }
         );
@@ -133,10 +133,10 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
     self.deleteChannel = function() {
         UnquiTubeService.deleteChannel(self.channel.id, 
             function(){
-                window.location = window.location.origin;
+                $window.location = $window.location.origin;
             }, 
             function(error){
-                window.alert("Ha habido un problema y no se a podido borrar el canal");
+                $window.alert("Ha habido un problema y no se a podido borrar el canal");
                 console.log(error);
             }
         );
@@ -163,7 +163,7 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
             },
             function error(error) {
                 $('#add-video-modal').modal("hide");
-                window.alert("Sucedio un error al intentar guardar el video");
+                $window.alert("Sucedio un error al intentar guardar el video");
                 self.sendingNewVideo = false;
                 console.error(error);
             }
