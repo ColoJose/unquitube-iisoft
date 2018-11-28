@@ -8,7 +8,7 @@
                 <div class="row" ng-repeat="canal in homeCtrl.channelsList">
                     <div class="col">
                         <div class="canal">
-                            <a href="#!/player/{{canal.id}}"><span class="tituloCanal">{{ canal.name }}</span></a>
+                            <a href="#!/player/{{canal.id}}"><span class="tituloCanal">{{ canal.name }}</span></a> <span class="contadorViewersHome"> <i class="fas fa-users"></i> {{ canal.views }}</span>
                             <div class="scrollmenu squares">
 
                                 <!--Video-->
