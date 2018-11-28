@@ -60,7 +60,14 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
         if(angular.isDefined($scope.intervalPromise)) {
             $interval.cancel($scope.intervalPromise);
         }
-        $scope.$apply( () => UnquiTubeService.delViewer(self.channel.id, null, null) );
+        if(!$scope.$$phase) {
+            $scope.$apply( function () {
+                UnquiTubeService.delViewer(self.channel.id, null, null)
+            });
+        }
+        else
+            UnquiTubeService.delViewer(self.channel.id, null, null)
+        
         delete $scope.$root.tasksOnClose.removeViewerOnTabClosed;
     });
 
