@@ -7,7 +7,7 @@ app
     $routeProvider
         .when(PATH, {
             templateUrl : "./app/views/player/player.html",
-            controller: ["$scope", "$log", "UnquiTubeService", "$routeParams", PlayerCtrl],
+            controller: ["$scope", "$log", "UnquiTubeService", "$routeParams", "$interval", PlayerCtrl],
             controllerAs: "playerCtrl",
             aCustomTitle: "Player"
         }
@@ -17,10 +17,12 @@ app
 /**
  * Controller de la página player
  */
-function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
+function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams, $interval) {
 
     const self = this;
-    
+
+
+
     UnquiTubeService.addViewer($routeParams.idChannel, 
         function(response) {
             self.viewersCount = response.data.views;
@@ -36,11 +38,40 @@ function PlayerCtrl($scope, $log, UnquiTubeService, $routeParams) {
         }
     );
 
-    $scope.$on("$destroy", function(event) {
+    //Refresecar cantidad de usuarios
+
+    $scope.intervalPromise = null;
+
+    function actualizarViewersCount() {
+        UnquiTubeService.getPlaylist($routeParams.idChannel,
+            function(response) {
+                self.viewersCount = response.data.views;
+            },
+            function(error) {
+                console.error("No se pudo actualiza la cantidad de usuarios");
+                console.error(error);
+            }
+        );
+    };
+
+    $scope.intervalPromise = $interval(actualizarViewersCount, 5000);
+
+    $scope.$on('$destroy',function(){
+        if(angular.isDefined($scope.intervalPromise)) {
+            $interval.cancel($scope.intervalPromise);
+        }
         $scope.$apply( () => UnquiTubeService.delViewer(self.channel.id, null, null) );
         delete $scope.$root.tasksOnClose.removeViewerOnTabClosed;
     });
 
+    //Refrescar cantidad usuarios
+
+/*
+    $scope.$on("$destroy", function(event) {
+        $scope.$apply( () => UnquiTubeService.delViewer(self.channel.id, null, null) );
+        delete $scope.$root.tasksOnClose.removeViewerOnTabClosed;
+    });
+*/
     self.channel = null;
     self.channelCopy = null;
     // self.youtubeApiObjectLoaded = false;
